@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Alignment</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:200px 1fr 200px;
+    grid-template-rows:200px 1fr 200px;
+    grid-template-areas:
+        "one two three"
+        "four five six"
+        "seven eight nine";
+    gap:10px;
+    height:100vh;
+    margin:10px;
+}
+
+.box1{
+    width:90px;
+    height:90px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.one,.two,.three,.four,.five,.six,.seven,.eight,.nine{
+    display:flex;
+    padding: 10px;
+}
+
+.one{grid-area:one; background:#f43f5e;} /* Rose Red */
+.two{grid-area:two; background:#f97316;} /* Vibrant Orange */
+.three{grid-area:three; background:#eab308;} /* Amber Yellow */
+.four{grid-area:four; background:#22c55e;} /* Emerald Green */
+.five{grid-area:five; background:#06b6d4;} /* Cyan Blue */
+.six{grid-area:six; background:#3b82f6;} /* Royal Blue */
+.seven{grid-area:seven; background:#6366f1;} /* Indigo Purple */
+.eight{grid-area:eight; background:#a855f7;} /* Violet Magenta */
+.nine{grid-area:nine; background:#64748b;} /* Slate Grey */
+/* Top Row */
+.one{
+    justify-content:flex-end;
+    align-items:flex-end;
+}
+
+.two{
+    justify-content:center;
+    align-items:center;
+}
+
+.three{
+    justify-content:flex-start;
+    align-items:flex-end;
+}
+
+/* Middle Row */
+.four{
+    justify-content:flex-start;
+}
+
+.five{
+    justify-content:center;
+    align-items:flex-end;
+}
+
+.six{
+    justify-content:flex-end;
+    align-items:flex-start;
+}
+
+/* Bottom Row */
+.seven{
+    justify-content:flex-end;
+    align-items:center;
+}
+
+.eight{
+      justify-content:flex-start;
+    align-items:center;
+}
+
+.nine{
+     justify-content:flex-start;
+    align-items:center;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+    <div class="one"><div class="box1"></div></div>
+    <div class="two"><div class="box1"></div></div>
+    <div class="three"><div class="box1"></div></div>
+    <div class="four"><div class="box1"></div></div>
+    <div class="five"><div class="box1"></div></div>
+    <div class="six"><div class="box1"></div></div>
+    <div class="seven"><div class="box1"></div></div>
+    <div class="eight"><div class="box1"></div></div>
+    <div class="nine"><div class="box1"></div></div>
+</div>
+</body>
+</html>
