@@ -1,24 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Dashboard</title>
+
     <style>
-    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .sidebar {
+            background: #1a83ec;
+        }
+
+        .main {
+            display: grid;
+            grid-template-rows: 70px 120px 180px 120px;
+            gap: 10px;
+        }
+
+        .nav {
+            background: #04cceb;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .users {
+            background: #81190d;
+        }
+
+        .revenue {
+            background: #0edb63;
+        }
+
+        .orders {
+            background: #f39c12;
+        }
+
+        .middle {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 10px;
+        }
+
+        .chart {
+            background: #c471e5;
+        }
+
+        .report {
+            background: #1abc9c;
+        }
+
+        .widgets {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .widget1 {
+            background: #00aaff;
+        }
+
+        .widget2 {
+            background: #4fa9e6;
+        }
+
+        .widget3 {
+            background: #00b4d8;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
     </style>
 </head>
+
 <body>
+
     <div class="container">
-    <div class="one"><div class="box1"></div></div>
-    <div class="two"><div class="box1"></div></div>
-    <div class="three"><div class="box1"></div></div>
-    <!-- <div class="four"><div class="box1"></div></div>
-     <div class="five"><div class="box1"></div></div>
-    <div class="six"><div class="box1"></div></div>
-    <div class="seven"><div class="box1"></div></div>
-    <div class="eight"><div class="box1"></div></div>
-    <div class="nine"><div class="box1"></div></div>  -->
-</div>
+
+        <div class="sidebar box">
+            Sidebar
+        </div>
+
+        <div class="main">
+
+            <div class="nav box">
+                Navigation
+            </div>
+
+            <div class="stats">
+
+                <div class="users box">
+                    Users
+                </div>
+
+                <div class="revenue box">
+                    Revenue
+                </div>
+
+                <div class="orders box">
+                    Orders
+                </div>
+
+            </div>
+
+            <div class="middle">
+
+                <div class="chart box">
+                    Chart
+                </div>
+
+                <div class="report box">
+                    Report
+                </div>
+
+            </div>
+
+            <div class="widgets">
+
+                <div class="widget1 box">
+                    Widget 1
+                </div>
+
+                <div class="widget2 box">
+                    Widget 2
+                </div>
+
+                <div class="widget3 box">
+                    Widget 3
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
+
 </html>
