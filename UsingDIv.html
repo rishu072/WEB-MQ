@@ -49,18 +49,18 @@
 .nine{grid-area:nine; background:#64748b;} 
 /* Top Row */
 .one{
-    justify-content:flex-up;
+    justify-content:flex-start; /* Fixed: 'flex-up' is invalid */
     align-items:flex-start;
 }
 
 .two{
     justify-content:center;
-    align-items:last baseline;
+    align-items:flex-end; /* Simplified from 'last baseline' for standard practice */
 }
 
 .three{
     justify-content:flex-end;
-    align-items:flex-up;
+    align-items:flex-start; /* Fixed: 'flex-up' is invalid */
 }
 
 /* Middle Row */
@@ -82,17 +82,17 @@
 /* Bottom Row */
 .seven{
     justify-content:flex-start;
-    align-items:end;
+    align-items:flex-end;
 }
 
 .eight{
       justify-content:flex-start;
-     align-items:flex-start,center;
+      align-items:center; /* Fixed: comma-separated 'flex-start,center' is invalid */
 }
 
 .nine{
      justify-content:flex-end;
-    align-items:end;
+     align-items:flex-end;
 }
 </style>
 </head>

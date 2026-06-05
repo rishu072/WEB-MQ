@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    background:#212831;
+    color:#fff;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:330px 1fr;
+    min-height:100vh;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    background:#343b44;
+    border-right:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+    height:76px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:0 28px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo-circle{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:#d9d9d9;
+    color:#333;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+}
+
+.logo h2{
+    font-weight:500;
+}
+
+.menu{
+    padding:20px 10px;
+}
+
+.menu-item{
+    height:54px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 22px;
+    color:#d7d7d7;
+    border-radius:8px;
+    margin-bottom:6px;
+    font-size:18px;
+}
+
+.menu-item.active{
+    background:#464d55;
+}
+
+.menu-left{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.submenu{
+    margin-left:18px;
+}
+
+.submenu .menu-item{
+    font-size:17px;
+}
+
+.badge{
+    background:#6c757d;
+    padding:2px 9px;
+    border-radius:6px;
+    font-size:14px;
+}
+
+/* ================= MAIN ================= */
+
+.main{
+    display:flex;
+    flex-direction:column;
+}
+
+/* top nav */
+
+.topbar{
+    height:76px;
+    background:#1d232b;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 28px;
+}
+
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:45px;
+}
+
+.nav-link{
+    color:#d6d6d6;
+    font-size:18px;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    font-size:22px;
+}
+
+
+
+/* ================= CONTENT ================= */
+
+.content{
+    padding:28px;
+}
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    font-size:54px;
+    font-weight:400;
+}
+
+.breadcrumb{
+    font-size:18px;
+    color:#cfcfcf;
+}
+
+.breadcrumb span{
+    color:#4c91ff;
+}
+
+/* cards */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    margin-bottom:28px;
+}
+
+.card{
+    height:190px;
+    border-radius:10px;
+    overflow:hidden;
+    position:relative;
+}
+
+.card-body{
+    padding:20px;
+}
+
+.card h2{
+    font-size:54px;
+}
+
+.card p{
+    font-size:20px;
+    margin-top:8px;
+}
+
+.card-icon{
+    position:absolute;
+    right:25px;
+    top:25px;
+    font-size:78px;
+    opacity:.18;
+}
+
+.more{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    text-align:center;
+    padding:14px;
+    background:rgba(0,0,0,.08);
+    font-size:18px;
+}
+
+.blue{background:#1f6feb;}
+.green{background:#1f9254;}
+.yellow{
+    background:#ffc107;
+    color:#000;
+}
+.red{background:#dc3545;}
+
+/* ================= DASHBOARD AREA ================= */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:28px;
+}
+
+.panel{
+    background:#1d232b;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.panel-header{
+    padding:20px 24px;
+    font-size:20px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* map */
+
+.map-panel{
+    background:#2f80ff;
+}
+
+.map-area{
+    height:400px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:220px;
+    opacity:.85;
+}
+
+.map-area i{
+    color:#fff;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    padding:20px;
+    gap:18px;
+}
+
+.small-chart{
+    height:70px;
+    border-bottom:2px solid rgba(255,255,255,.2);
+    position:relative;
+}
+
+.small-chart::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+    to top,
+    rgba(255,255,255,.25),
+    transparent);
+    clip-path:polygon(
+    0 50%,10% 30%,20% 48%,30% 45%,
+    40% 44%,50% 38%,60% 55%,70% 48%,
+    80% 42%,90% 25%,100% 40%,100% 100%,0 100%);
+}
+
+.label{
+    text-align:center;
+    margin-top:8px;
+    font-size:18px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-circle">
+                <i class="fa-solid fa-a"></i>
+            </div>
+            <h2>AdminLTE 4</h2>
+        </div>
+
+        <div class="menu">
+
+            <div class="menu-item active">
+                <div class="menu-left">
+                    <i class="fa-solid fa-gauge"></i>
+                    Dashboard
+                </div>
+                <i class="fa-solid fa-angle-down"></i>
+            </div>
+
+            <div class="submenu">
+
+                <div class="menu-item active">
+                    <div class="menu-left">
+                        <i class="fa-regular fa-circle"></i>
+                        Dashboard v1
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-left">
+                        <i class="fa-regular fa-circle"></i>
+                        Dashboard v2
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-left">
+                        <i class="fa-regular fa-circle"></i>
+                        Dashboard v3
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-left">
+                    <i class="fa-solid fa-palette"></i>
+                    Theme Generate
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-left">
+                    <i class="fa-solid fa-cube"></i>
+                    Widgets
+                </div>
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-left">
+                    <i class="fa-solid fa-briefcase"></i>
+                    Layout Options
+                </div>
+                <div>
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-left">
+                    <i class="fa-solid fa-tree"></i>
+                    UI Elements
+                </div>
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-left">
+                    <i class="fa-regular fa-envelope"></i>
+                    Mailbox
+                </div>
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-left">
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    Forms
+                </div>
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-left">
+                    <i class="fa-solid fa-table"></i>
+                    Tables
+                </div>
+                <i class="fa-solid fa-angle-right"></i>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <div class="nav-left">
+                <i class="fa-solid fa-bars"></i>
+                <div class="nav-link">Live preview</div>
+                <div class="nav-link">Documentation</div>
+            </div>
+
+            <div class="nav-right">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-regular fa-comments"></i>
+                <i class="fa-solid fa-bell"></i>
+                <i class="fa-solid fa-expand"></i>
+                <i class="fa-solid fa-moon"></i>
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <div class="page-header">
+                <h1>Dashboard</h1>
+
+                <div class="breadcrumb">
+                    <span>Home</span> / Dashboard
+                </div>
+            </div>
+
+            <div class="cards">
+
+                <div class="card blue">
+                    <div class="card-body">
+                        <h2>150</h2>
+                        <p>New Orders</p>
+                    </div>
+                    <i class="fa-solid fa-cart-shopping card-icon"></i>
+                    <div class="more">More info 🔗</div>
+                </div>
+
+                <div class="card green">
+                    <div class="card-body">
+                        <h2>53%</h2>
+                        <p>Bounce Rate</p>
+                    </div>
+                    <i class="fa-solid fa-chart-simple card-icon"></i>
+                    <div class="more">More info 🔗</div>
+                </div>
+
+                <div class="card yellow">
+                    <div class="card-body">
+                        <h2>44</h2>
+                        <p>User Registrations</p>
+                    </div>
+                    <i class="fa-solid fa-user-plus card-icon"></i>
+                    <div class="more">More info 🔗</div>
+                </div>
+
+                <div class="card red">
+                    <div class="card-body">
+                        <h2>65</h2>
+                        <p>Unique Visitors</p>
+                    </div>
+                    <i class="fa-solid fa-chart-pie card-icon"></i>
+                    <div class="more">More info 🔗</div>
+                </div>
+
+            </div>
+
+            <div class="dashboard">
+
+                <div class="panel map-panel">
+
+                    <div class="panel-header">
+                        Sales Value
+                    </div>
+
+                    <div class="map-area">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+
+                    <div class="stats">
+
+                        <div>
+                            <div class="small-chart"></div>
+                            <div class="label">Visitors</div>
+                        </div>
+
+                        <div>
+                            <div class="small-chart"></div>
+                            <div class="label">Online</div>
+                        </div>
+
+                        <div>
+                            <div class="small-chart"></div>
+                            <div class="label">Sales</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

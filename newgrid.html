@@ -3,43 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CSS Grid Areas Practice</title>
     <style>
-        .container{
+        .container {
             display: grid;
             grid-template-columns: 200px 1fr 200px;
             grid-template-rows: 80px 1fr 60px;
             grid-template-areas: 
-            "header header header"
-            "sider main aside"
-            "footer footer footer";         
+                "header header header"
+                "sider main aside"
+                "footer footer footer";         
             gap: 10px;
             height: 100vh;
-            width: 100vw;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
         }
-        .header{ 
+        
+        .header { 
             grid-area: header;
-            background-color: blue;}
-        .sider{grid-area: sidebar;
-            background-color: green;}
-        .main{grid-area: main;
-        background-color: orange;}
-        .aside{grid-area: aside;
-        background-color: yellow;}
-        .footer{grid-area: footer;
-            background-color: black;}
-        .col{
-            background-color: #fff;
+            background-color: #1f6feb; /* Blue */
+        }
+        
+        .sider {
+            grid-area: sider; /* Fixed mismatch: was 'sidebar' */
+            background-color: #1f9254; /* Green */
+        }
+        
+        .main {
+            grid-area: main;
+            background-color: #f39c12; /* Orange */
+        }
+        
+        .aside {
+            grid-area: aside;
+            background-color: #9b59b6; /* Purple */
+        }
+        
+        .footer {
+            grid-area: footer;
+            background-color: #2c3e50; /* Dark blue/gray */
+        }
+        
+        .col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="col">header</div>
-        <div class="col">Sider</div>
-        <div class="col">Main</div>
-        <div class="col">Aside</div>
-        <div class="col">Footer</div>
+        <!-- Added correct classes to match CSS selectors -->
+        <div class="col header">Header</div>
+        <div class="col sider">Sider</div>
+        <div class="col main">Main</div>
+        <div class="col aside">Aside</div>
+        <div class="col footer">Footer</div>
     </div>
 </body>
 </html>
