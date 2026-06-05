@@ -463,6 +463,15 @@
             color: var(--text-primary);
         }
 
+        .offers-header-row .section-title {
+            margin-bottom: 8px;
+        }
+
+        .airlines-container .section-title {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -1089,7 +1098,7 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                     Customer Service
                 </a>
-                <button class="login-btn">Log in/Sign up</button>
+                <button type="button" class="login-btn">Log in/Sign up</button>
             </nav>
         </div>
     </header>
@@ -1129,19 +1138,17 @@
     <main>
         <section class="hero-section">
             <div class="hero-container">
-                <h1 class="hero-title">Search, Book & Track Flights</h1>
-                
+                <h1 class="hero-title">Search, Book &amp; Track Flights</h1>
                 <div class="search-widget">
                     <!-- Trip Type Toggles -->
                     <div class="trip-type-selector" role="tablist">
-                        <button class="trip-type-btn active" role="tab" aria-selected="true">One Way</button>
-                        <button class="trip-type-btn" role="tab" aria-selected="false">Round Trip</button>
+                        <button type="button" class="trip-type-btn active" role="tab" aria-selected="true">One Way</button>
+                        <button type="button" class="trip-type-btn" role="tab" aria-selected="false">Round Trip</button>
                     </div>
 
                     <!-- Main Search Fields Form -->
                     <form class="search-form" action="#" method="GET" onsubmit="event.preventDefault();">
                         <div class="search-form-grid">
-                            
                             <!-- From Location -->
                             <div class="input-wrapper">
                                 <label for="flight-from">From</label>
@@ -1175,15 +1182,15 @@
                             <!-- Return Date -->
                             <div class="input-wrapper">
                                 <label for="return-date">Return</label>
-                                <input type="date" id="return-date" name="return" placeholder="Select Date" class="date-input">
+                                <input type="date" id="return-date" name="return" class="date-input">
                                 <span class="sub-info">Tap to add return date</span>
                             </div>
 
                             <!-- Travellers & Cabin Class -->
                             <div class="input-wrapper">
-                                <label for="travellers-class">Travellers & Class</label>
+                                <label for="travellers-class">Travellers &amp; Class</label>
                                 <input type="text" id="travellers-class" name="travellers" value="1 Traveller, Economy" readonly>
-                                <span class="sub-info">Select passengers & class</span>
+                                <span class="sub-info">Select passengers &amp; class</span>
                             </div>
 
                             <!-- Search Button -->
@@ -1201,15 +1208,15 @@
                             <div class="special-fares-container">
                                 <span class="special-fares-label">Special Fares:</span>
                                 <label class="fare-chip">
-                                    <input type="checkbox" name="special-fare" value="student">
+                                    <input type="checkbox" name="special-fare-student" value="student">
                                     <span>Student</span>
                                 </label>
                                 <label class="fare-chip">
-                                    <input type="checkbox" name="special-fare" value="senior">
+                                    <input type="checkbox" name="special-fare-senior" value="senior">
                                     <span>Senior Citizen</span>
                                 </label>
                                 <label class="fare-chip">
-                                    <input type="checkbox" name="special-fare" value="armed-forces">
+                                    <input type="checkbox" name="special-fare-armed-forces" value="armed-forces">
                                     <span>Armed Forces</span>
                                 </label>
                             </div>
@@ -1286,12 +1293,12 @@
             <div class="container">
                 <div class="offers-header-row">
                     <div>
-                        <h2 class="section-title" style="margin-bottom: 8px;">Today's Flight Offers</h2>
+                        <h2 class="section-title">Today's Flight Offers</h2>
                         <div class="offers-tabs">
-                            <button class="offer-tab-btn active">Flights</button>
-                            <button class="offer-tab-btn">Hotels</button>
-                            <button class="offer-tab-btn">Bank Offers</button>
-                            <button class="offer-tab-btn">Trains</button>
+                            <button type="button" class="offer-tab-btn active">Flights</button>
+                            <button type="button" class="offer-tab-btn">Hotels</button>
+                            <button type="button" class="offer-tab-btn">Bank Offers</button>
+                            <button type="button" class="offer-tab-btn">Trains</button>
                         </div>
                     </div>
                     <a href="/offers" class="view-all-link">
@@ -1361,7 +1368,6 @@
         <!-- 6. Popular Flight Routes & Airlines -->
         <section class="section-padding container">
             <h2 class="section-title">Popular Domestic Flight Routes</h2>
-            
             <div class="popular-routes-tabs">
                 <span class="route-tab active">Flights from Delhi</span>
                 <span class="route-tab">Flights from Mumbai</span>
@@ -1391,7 +1397,7 @@
 
             <!-- Airlines Section -->
             <div class="airlines-container">
-                <h3 class="section-title" style="font-size: 16px; margin-bottom: 16px;">Popular Domestic Airlines</h3>
+                <h3 class="section-title">Popular Domestic Airlines</h3>
                 <div class="airlines-grid">
                     <a href="/airlines/indigo" class="airline-card">
                         <span class="airline-logo-placeholder">6E</span>
@@ -1464,7 +1470,7 @@
                     </div>
                 </details>
             </div>
-            <button class="view-more-btn">View More FAQs</button>
+            <button type="button" class="view-more-btn">View More FAQs</button>
         </section>
 
     </main>
@@ -1496,20 +1502,20 @@
                 <h4>Corporate</h4>
                 <ul>
                     <li><a href="/about-us">About ixigo Group</a></li>
-                    <li><a href="/careers">Careers & Hiring</a></li>
+                    <li><a href="/careers">Careers &amp; Hiring</a></li>
                     <li><a href="/investors">Investor Relations</a></li>
                     <li><a href="/privacy">Privacy Policy Statement</a></li>
-                    <li><a href="/terms">Terms & Conditions of Use</a></li>
+                    <li><a href="/terms">Terms &amp; Conditions of Use</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>Contact & Help</h4>
+                <h4>Contact &amp; Help</h4>
                 <ul>
                     <li><a href="/help-center">Frequently Asked Questions</a></li>
                     <li><a href="/help-center">Submit a Ticket / Support</a></li>
                     <li><a href="/advertise">Advertise With Us</a></li>
                     <li><a href="/affiliates">Partner Affiliation</a></li>
-                    <li><a href="/media">Media & Press Room</a></li>
+                    <li><a href="/media">Media &amp; Press Room</a></li>
                 </ul>
             </div>
         </div>
@@ -1534,24 +1540,23 @@
 
             <!-- App Store Badges -->
             <div class="app-download">
-                <button class="app-btn">
+                <a href="https://apple.com" class="app-btn">
                     <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C3.82 16.48 4.34 9.17 8.64 9c1.44.05 2.3.83 3.12.83.83 0 1.94-.87 3.64-.7 1.44.15 2.57.73 3.23 1.68-2.92 1.76-2.45 5.76.5 6.93-.84 2.1-1.74 4.1-2.08 4.54zM15.42 6.54c.78-.96 1.25-2.3 1.05-3.54-1.1.1-2.46.77-3.2 1.66-.7.82-1.25 2.17-1.02 3.4 1.22.1 2.44-.64 3.17-1.52z"/></svg>
-                    <div class="app-btn-text">
+                    <span class="app-btn-text">
                         <span>Download on the</span>
                         <span>App Store</span>
-                    </div>
-                </button>
-                <button class="app-btn">
+                    </span>
+                </a>
+                <a href="https://play.google.com" class="app-btn">
                     <svg viewBox="0 0 24 24"><path d="M3 5.27v13.46c0 .87.72 1.57 1.6 1.57h14.8c.88 0 1.6-.7 1.6-1.57V5.27c0-.87-.72-1.57-1.6-1.57H4.6c-.88 0-1.6.7-1.6 1.57zm12.38 3.51l-3.38 3.38-1.5-1.5a1.003 1.003 0 00-1.42 1.42l2.21 2.21c.39.39 1.02.39 1.42 0l4.09-4.09a1.003 1.003 0 00-1.42-1.42z"/></svg>
-                    <div class="app-btn-text">
+                    <span class="app-btn-text">
                         <span>Get it on</span>
                         <span>Google Play</span>
-                    </div>
-                </button>
+                    </span>
+                </a>
             </div>
         </div>
     </footer>
 
 </body>
 </html>
-
