@@ -80,6 +80,10 @@ button {
     margin-bottom: 32px;
 }
 
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
 /* Header & Navigation */
 header {
     background-color: var(--bg-card);
@@ -339,6 +343,10 @@ header.scrolled {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#return-date-block {
+    opacity: 0.5;
 }
 
 .input-block:not(:last-child):not(.swap-btn-container) {
@@ -962,6 +970,12 @@ header.scrolled {
     margin-bottom: 12px;
 }
 
+.mock-app-header svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+
 .mock-app-logo {
     font-size: 16px;
     font-weight: 800;
@@ -978,6 +992,17 @@ header.scrolled {
     border-radius: var(--radius-sm);
     padding: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.mock-search-card.live-status {
+    padding: 10px;
+    font-size: 11px;
+}
+
+.mock-search-card.live-status strong {
+    color: var(--brand-orange);
+    display: block;
+    margin-bottom: 4px;
 }
 
 .mock-tabs {
@@ -1412,6 +1437,12 @@ footer {
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+.btn-close-drawer svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
 }
 
 .results-content {
