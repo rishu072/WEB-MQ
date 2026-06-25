@@ -57,6 +57,7 @@
             letter-spacing: 4px;
             background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
             margin-bottom: 0.5rem;
@@ -832,11 +833,10 @@
         <div class="stage" id="stage">
             <div class="sky"></div>
             <div class="moon"></div>
-            
             <div class="mountains"></div>
             <div class="mountains-foreground"></div>
             <div class="horizon-glow"></div>
-            
+
             <!-- Road Container -->
             <div class="road-container">
                 <div class="road" id="road"></div>
@@ -849,12 +849,11 @@
                     <div class="horn-wave"></div>
                     <!-- Glow effect under the car -->
                     <div class="underglow" id="underglow"></div>
-                    
+
                     <!-- Exhaust pipe and smoke -->
                     <div class="exhaust-pipe"></div>
                     <div class="smoke-container" id="smokeContainer">
                         <div class="smoke"></div>
-                        <div class="smoke-container"></div>
                         <div class="smoke"></div>
                         <div class="smoke"></div>
                     </div>
@@ -864,7 +863,7 @@
                         <!-- Spoiler -->
                         <div class="spoiler"></div>
                         <div class="spoiler-post"></div>
-                        
+
                         <!-- Lights -->
                         <div class="headlight"></div>
                         <div class="taillight"></div>
@@ -913,10 +912,10 @@
                 <div>
                     <h3>Speed Control</h3>
                     <div class="btn-group">
-                        <button class="btn" id="btnStop" onclick="setSpeed('stop')">Stop</button>
-                        <button class="btn" id="btnSlow" onclick="setSpeed('slow')">Slow</button>
-                        <button class="btn active" id="btnCruise" onclick="setSpeed('cruise')">Cruise</button>
-                        <button class="btn" id="btnNitro" onclick="setSpeed('nitro')">Nitro</button>
+                        <button type="button" class="btn" id="btnStop" onclick="setSpeed('stop')">Stop</button>
+                        <button type="button" class="btn" id="btnSlow" onclick="setSpeed('slow')">Slow</button>
+                        <button type="button" class="btn active" id="btnCruise" onclick="setSpeed('cruise')">Cruise</button>
+                        <button type="button" class="btn" id="btnNitro" onclick="setSpeed('nitro')">Nitro</button>
                     </div>
                 </div>
 
@@ -930,8 +929,8 @@
                 <div>
                     <h3>Car Customization</h3>
                     <div class="btn-group">
-                        <button class="btn btn-light active" id="btnLights" onclick="toggleLights()">💡 Lights</button>
-                        <button class="btn btn-horn" id="btnHorn" onmousedown="honk(true)" onmouseup="honk(false)" ontouchstart="honk(true)" ontouchend="honk(false)">🎺 Horn</button>
+                        <button type="button" class="btn btn-light active" id="btnLights" onclick="toggleLights()">💡 Lights</button>
+                        <button type="button" class="btn btn-horn" id="btnHorn" onmousedown="honk(true)" onmouseup="honk(false)" ontouchstart="honk(true)" ontouchend="honk(false)">🎺 Horn</button>
                     </div>
                 </div>
 
