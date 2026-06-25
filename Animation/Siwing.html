@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jhula Animation</title>
+  <style>
+    .swing {
+      width: 100px;
+      height: 100px;
+      background: orange;
+      margin: 100px auto;
+      border-radius: 10px;
+      animation: jhula 2s infinite ease-in-out;
+      transform-origin: top center; /* pivot point */
+    }
+
+    @keyframes jhula {
+      0%   { transform: rotate(10deg); }
+      50%  { transform: rotate(-10deg); }
+      100% { transform: rotate(10deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="swing"></div>
+</body>
+</html>
