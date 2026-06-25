@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Dots Loader</title>
+
+<style>
+:root{
+    --dot-size: 22px;
+    --gap: 16px;
+    --duration: 1.2s;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#ffffff;
+    font-family:Arial, sans-serif;
+}
+
+.loader{
+    display:flex;
+    gap:var(--gap);
+}
+
+.dot{
+    width:var(--dot-size);
+    height:var(--dot-size);
+    border-radius:50%;
+    animation:bounce var(--duration) infinite cubic-bezier(.5,.05,.5,.95);
+    box-shadow:0 6px 14px rgba(0,0,0,.15);
+}
+
+.dot:nth-child(1){
+    background:#4285F4;
+    animation-delay:0s;
+}
+
+.dot:nth-child(2){
+    background:#EA4335;
+    animation-delay:.15s;
+}
+
+.dot:nth-child(3){
+    background:#FBBC05;
+    animation-delay:.30s;
+}
+
+.dot:nth-child(4){
+    background:#34A853;
+    animation-delay:.45s;
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0) scale(.8);
+        opacity:.45;
+    }
+
+    40%{
+        transform:translateY(-20px) scale(1.25);
+        opacity:1;
+    }
+
+    60%{
+        transform:translateY(-10px) scale(1.05);
+        opacity:.9;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="loader">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+</body>
+</html>
