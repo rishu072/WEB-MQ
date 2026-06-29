@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>to make clone of https://www.ixigo.com/</title>
+    <link rel="stylesheet" href="ixigo.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Offer Banner -->
+      <div class="offer-banner">
+        <span>Flat 19% Off on Flights &amp; Flat 91% Off on Hotels</span>
+        <img src="./img/header/offer.png" alt="offer" class="offer-img" />
+      </div>
+
+      <div class="wavy-border"></div>
+
+      <!-- Header -->
+      <header class="ixigo-header">
+        <div class="left-nav">
+          <img
+            src="./img/header/ixigoLogo.webp"
+            alt="ixigo logo"
+            class="logo"
+          />
+        </div>
+
+        <div class="right-nav">
+          <div class="nav-item">
+            <i class="bi bi-ticket-perforated-fill nav-icon"></i>
+            <a href="#">Offers</a>
+          </div>
+
+          <div class="nav-item">
+            <i class="bi bi-headset nav-icon"></i>
+            <a href="#">Customer Service</a>
+          </div>
+
+          <div class="user-section">
+            <div class="user-circle">
+              <i class="bi bi-person-fill"></i>
+            </div>
+            <span>Log in/Sign up</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="travel-tabs">
+          <div class="travel-item active-travel">
+            <div class="travel-icon flight-icon"></div>
+            <span>Flights</span>
+          </div>
+
+          <div class="travel-item hotel-tab">
+            <div class="hotel-offer-badge">Flat 91% Off</div>
+            <div class="travel-icon hotel-icon"></div>
+            <span>Hotels</span>
+          </div>
+
+          <div class="travel-item">
+            <div class="travel-icon train-icon"></div>
+            <span>Trains</span>
+          </div>
+
+          <div class="travel-item">
+            <div class="travel-icon bus-icon"></div>
+            <span>Buses</span>
+          </div>
+
+          <div class="travel-heading">
+            Book International and Domestic Flights
+          </div>
+        </div>
+
+        <div class="booking-card">
+          <div class="trip-buttons">
+            <button class="trip-btn active-trip">One Way</button>
+            <button class="trip-btn">Round Trip</button>
+            <div class="customer-support">
+              <i class="bi bi-telephone-fill"></i>
+              <span>24x7 Customer Support</span>
+            </div>
+          </div>
+
+          <div class="search-grid">
+            <div class="field-box from-box">
+              <span>From</span>
+            </div>
+
+            <div class="field-box">
+              <span>To</span>
+            </div>
+
+            <div class="field-box">
+              <small>Departure</small>
+              <h3>Sat, 06 Jun</h3>
+            </div>
+
+            <div class="field-box">
+              <span>Return</span>
+            </div>
+
+            <div class="field-box traveller-box">
+              <small>Travellers & Class</small>
+              <h3>1 Traveller, Economy</h3>
+            </div>
+
+            <button class="main-search-btn">
+              Search
+              <i class="bi bi-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="special-fares">
+            <strong>Special Fares</strong>
+            <span>(Optional) :</span>
+
+            <div class="fare-pill">Student</div>
+            <div class="fare-pill">Senior Citizen</div>
+            <div class="fare-pill">Armed Forces</div>
+          </div>
+
+          <div class="protection-bar">
+            <div class="protection-left">
+              <input type="checkbox" />
+              <strong>Always opt for Free Cancellation</strong>
+            </div>
+
+            <div class="protection-right">
+              <span class="separator">•</span>
+
+              <div class="benefit-item">
+                <i class="bi bi-ticket-perforated"></i>
+                <span>₹0 cancellation fee</span>
+              </div>
+
+              <span class="separator">•</span>
+
+              <div class="benefit-item">
+                <i class="bi bi-currency-rupee"></i>
+                <span>No-questions-asked instant refunds</span>
+              </div>
+
+              <span class="separator">•</span>
+
+              <div class="benefit-item">
+                <i class="bi bi-headset"></i>
+                <span>Priority customer service</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Do More Section -->
+      <div class="do-more-section">
+        <span class="section-heading"> Do More With ixigo </span>
+        <section class="do-more-card">
+          <div class="do-more-item">
+            <i class="bi bi-airplane-engines"></i>
+            <span>Flight<br />Tracker</span>
+            <div class="badge-pro">Pro</div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="do-more-item">
+            <i class="bi bi-credit-card"></i>
+            <span>Credit Card</span>
+            <div class="badge-free">Free</div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="do-more-item">
+            <i class="bi bi-passport"></i>
+            <span>Book Visa</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="do-more-item">
+            <i class="bi bi-people"></i>
+            <span>Group<br />Booking</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="do-more-item">
+            <i class="bi bi-compass"></i>
+            <span>Plan</span>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="do-more-item">
+            <i class="bi bi-bell"></i>
+            <span>Fare Alerts</span>
+          </div>
+        </section>
+      </div>
+
+      <!-- Offers Section -->
+      <section class="offers-section">
+        <div class="offers-header">
+          <h2>Offers For You</h2>
+
+          <div class="offers-controls">
+            <button class="offer-filter active-filter">Flights</button>
+            <button class="offer-filter">Hotels</button>
+            <button class="offer-filter">Bank Offers</button>
+            <button class="offer-filter">Trains</button>
+
+            <a href="#" class="view-all">
+              View All
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="offers-slider">
+          <div class="offer-card">
+            <img src="./img/OfferForYou/OffersForYou-1.webp" alt="Offer 1" />
+          </div>
+
+          <div class="offer-card">
+            <img src="./img/OfferForYou/OffersForYou-2.webp" alt="Offer 2" />
+          </div>
+
+          <div class="offer-card">
+            <img src="./img/OfferForYou/OffersForYou-3.webp" alt="Offer 3" />
+          </div>
+
+          <div class="offer-card">
+            <img src="./img/OfferForYou/OffersForYou-4.webp" alt="Offer 4" />
+          </div>
+
+          <div class="offer-card-5">
+            <img src="./img/OfferForYou/OffersForYou-5.webp" alt="Offer 5" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Book Section -->
+      <section class="why-book-section">
+        <h2>Why Book With ixigo?</h2>
+
+        <div class="why-book-grid">
+          <div class="why-card">
+            <img src="./img/whyBook/WhyBook-1.png" alt="" />
+          </div>
+
+          <div class="why-card">
+            <img src="./img/whyBook/WhyBook-2.png" alt="" />
+          </div>
+
+          <div class="why-card">
+            <img src="./img/whyBook/WhyBook-3.png" alt="" />
+          </div>
+
+          <div class="why-card">
+            <img src="./img/whyBook/WhyBook-4.png" alt="" />
+          </div>
+
+          <div class="why-card-5">
+            <img src="./img/whyBook/WhyBook-5.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Best Deals Section -->
+      <section class="best-deals-section">
+        <div class="best-deals-header">
+          <h2>Best Deals for Hotels</h2>
+
+          <div class="city-filters">
+            <button class="active-city">New Delhi</button>
+            <button>Mumbai</button>
+            <button>Bengaluru</button>
+            <button>Hyderabad</button>
+            <button>Chennai</button>
+
+            <a href="#">View all <i class="bi bi-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <div class="hotel-grid">
+          <div class="hotel-card">
+            <img src="./img/BestDeals/BestDeals-1.jpg" alt="" />
+            <h3>Park Inn by Radisson</h3>
+            <p>Patparganj</p>
+            <div class="hotel-footer">
+              <span class="rating">8.3</span>
+              <strong>₹4,779</strong>
+            </div>
+          </div>
+
+          <div class="hotel-card">
+            <img src="./img/BestDeals/BestDeals-2.jpg" alt="" />
+            <h3>Park Plaza Delhi</h3>
+            <p>Shahdara</p>
+            <div class="hotel-footer">
+              <span class="rating">8.4</span>
+              <strong>₹4,113</strong>
+            </div>
+          </div>
+
+          <div class="hotel-card">
+            <img src="./img/BestDeals/BestDeals-3.jpg" alt="" />
+            <h3>Sarovar Portico</h3>
+            <p>Naraina</p>
+            <div class="hotel-footer">
+              <span class="rating">8.2</span>
+              <strong>₹5,361</strong>
+            </div>
+          </div>
+
+          <div class="hotel-card">
+            <img src="./img/BestDeals/BestDeals-4.jpg" alt="" />
+            <h3>Deventure Sarovar</h3>
+            <p>Kapas Hera</p>
+            <div class="hotel-footer">
+              <span class="rating">8.2</span>
+              <strong>₹5,730</strong>
+            </div>
+          </div>
+
+          <div class="hotel-card">
+            <img src="./img/BestDeals/BestDeals-5.jpeg" alt="" />
+            <h3>Bloomrooms</h3>
+            <p>Connaught Place</p>
+            <div class="hotel-footer">
+              <span class="rating">8.9</span>
+              <strong>₹5,199</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cheapest Fares Section -->
+
+      <section class="fares-section">
+        <div class="fares-header">
+          <h2>Cheapest Fares From</h2>
+
+          <select>
+            <option>New Delhi</option>
+            <option>Mumbai</option>
+            <option>Bengaluru</option>
+            <option>Hyderabad</option>
+          </select>
+        </div>
+
+        <div class="fares-grid">
+          <div class="fare-card">
+            <img src="./img/CheapestFaresForm/bathinda.jpg" alt="" />
+            <div class="fare-content">
+              <h3>Bathinda, <span>Punjab</span></h3>
+              <p>Wed, 17 Jun</p>
+
+              <div class="fare-footer">
+                <strong>₹2,100 onwards</strong>
+                <button>Book Flight</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="fare-card">
+            <img src="./img/CheapestFaresForm/hissar.jpg" alt="" />
+            <div class="fare-content">
+              <h3>Hissar, <span>Haryana</span></h3>
+              <p>Sun, 21 Jun</p>
+
+              <div class="fare-footer">
+                <strong>₹2,133 onwards</strong>
+                <button>Book Flight</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="fare-card">
+            <img src="./img/CheapestFaresForm/gwalior.jpg" alt="" />
+            <div class="fare-content">
+              <h3>Gwalior, <span>Madhya Pradesh</span></h3>
+              <p>Fri, 19 Jun</p>
+
+              <div class="fare-footer">
+                <strong>₹2,526 onwards</strong>
+                <button>Book Flight</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="fare-card">
+            <img src="./img/CheapestFaresForm/jaipur.jpg" alt="" />
+            <div class="fare-content">
+              <h3>Jaipur, <span>Rajasthan</span></h3>
+              <p>Fri, 19 Jun</p>
+
+              <div class="fare-footer">
+                <strong>₹2,996 onwards</strong>
+                <button>Book Flight</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="fare-card">
+            <img src="./img/CheapestFaresForm/pantnagar.jpg" alt="" />
+            <div class="fare-content">
+              <h3>Pantnagar, <span>Uttarakhand</span></h3>
+              <p>Tue, 28 Jul</p>
+
+              <div class="fare-footer">
+                <strong>₹3,197 onwards</strong>
+                <button>Book Flight</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular Flight Routes -->
+      <section class="routes-section">
+        <h2 class="routes-heading">Popular Flight Routes</h2>
+
+        <div class="routes-grid">
+          <div class="route-card">
+            <img src="./img/FlightRoutes/mumbai.png" alt="Mumbai" />
+            <div class="route-content">
+              <h3>Mumbai Flights</h3>
+              <p>
+                To:
+                <a href="#">Goa</a> • <a href="#">Delhi</a> •
+                <a href="#">Bangalore</a> •
+                <a href="#">Ahmedabad</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <img src="./img/FlightRoutes/delhi.png" alt="Delhi" />
+            <div class="route-content">
+              <h3>Delhi Flights</h3>
+              <p>
+                To:
+                <a href="#">Mumbai</a> • <a href="#">Goa</a> •
+                <a href="#">Bangalore</a> •
+                <a href="#">Pune</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <img src="./img/FlightRoutes/kolkata.png" alt="Kolkata" />
+            <div class="route-content">
+              <h3>Kolkata Flights</h3>
+              <p>
+                To:
+                <a href="#">Mumbai</a> • <a href="#">Delhi</a> •
+                <a href="#">Bangalore</a> •
+                <a href="#">Bagdogra</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <img src="./img/FlightRoutes/chennai.png" alt="Chennai" />
+            <div class="route-content">
+              <h3>Chennai Flights</h3>
+              <p>
+                To:
+                <a href="#">Mumbai</a> • <a href="#">Delhi</a> •
+                <a href="#">Madurai</a> •
+                <a href="#">Coimbatore</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <img src="./img/FlightRoutes/hyderabad.png" alt="Hyderabad" />
+            <div class="route-content">
+              <h3>Hyderabad Flights</h3>
+              <p>
+                To:
+                <a href="#">Mumbai</a> • <a href="#">Goa</a> •
+                <a href="#">Bangalore</a> •
+                <a href="#">Delhi</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="route-card">
+            <img src="./img/FlightRoutes/ahmedabad.png" alt="Ahmedabad" />
+            <div class="route-content">
+              <h3>Ahmedabad Flights</h3>
+              <p>
+                To:
+                <a href="#">Mumbai</a> • <a href="#">Delhi</a> •
+                <a href="#">Bangalore</a> •
+                <a href="#">Goa</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="view-more-route">
+          View More
+          <i class="bi bi-chevron-down"></i>
+        </a>
+      </section>
+
+      <!-- Popular Domestic Airlines -->
+      <section class="airlines-section">
+        <h2 class="airlines-heading">Popular Domestic Airlines</h2>
+
+        <div class="airlines-card">
+          <div class="airline-item">
+            <img src="./img/DomesticAirlines/IndiGo.png" alt="IndiGo" />
+            <span>IndiGo</span>
+          </div>
+
+          <div class="airline-item">
+            <img src="./img/DomesticAirlines/AirIndia.png" alt="Air India" />
+            <span>Air India</span>
+          </div>
+
+          <div class="airline-item">
+            <img
+              src="./img/DomesticAirlines/AirIndiaExp.png"
+              alt="Air India Express"
+            />
+            <span>Air India Express</span>
+          </div>
+
+          <div class="airline-item">
+            <img src="./img/DomesticAirlines/AkasaAir.png" alt="Akasa Air" />
+            <span>Akasa Air</span>
+          </div>
+
+          <div class="airline-item">
+            <img
+              src="./img/DomesticAirlines/AllianceAir.png"
+              alt="Alliance Air"
+            />
+            <span>Alliance Air</span>
+          </div>
+
+          <div class="airline-item">
+            <img src="./img/DomesticAirlines/SpiceJet.png" alt="SpiceJet" />
+            <span>SpiceJet</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Download App Section -->
+<section class="app-section">
+
+    <div class="app-logo">
+        <img src="./img/DownloadApp/ixigo.png" alt="ixigo app">
+    </div>
+
+    <div class="app-content">
+
+        <h2>Download the App</h2>
+
+        <div class="app-feature">
+            <i class="bi bi-arrow-right-circle-fill"></i>
+            <span>Get up to <strong>25% Off</strong> on App</span>
+            <span class="app-code">Code: GETAPP</span>
+        </div>
+
+        <div class="app-feature">
+            <i class="bi bi-arrow-right-circle-fill"></i>
+            <span>Auto Web Checkin with Boarding Pass.</span>
+        </div>
+
+        <div class="app-feature">
+            <i class="bi bi-arrow-right-circle-fill"></i>
+            <span>Track Flight Status, Boarding Gate, Baggage Belt & more!</span>
+        </div>
+
+    </div>
+
+    <div class="app-rating">
+
+        <div class="rating-row">
+            <div class="rating-box">4.8</div>
+            <div class="stars">★★★★★</div>
+        </div>
+
+        <img src="./img/DownloadApp/GooglePlay.webp" alt="Google Play">
+        <img src="./img/DownloadApp/AppStore.webp" alt="App Store">
+
+    </div>
+
+    <div class="qr-box">
+        <img src="./img/DownloadApp/qrCode.png" alt="QR Code">
+    </div>
+
+</section>
+
+      <!-- News & Travel Stories -->
+      <section class="stories-section">
+        <h2 class="stories-heading">News And Travel Stories</h2>
+
+        <div class="stories-grid">
+          <div class="story-card">
+            <img src="./img/NewsTravelStories/NTS-1.png" alt="" />
+            <div class="story-overlay"></div>
+            <h3>Skip Airport Queues Like a Pro With This Little-Known Hack</h3>
+          </div>
+
+          <div class="story-card">
+            <img src="./img/NewsTravelStories/NTS-2.jpg" alt="" />
+            <div class="story-overlay"></div>
+            <h3>Top 15 Places to Visit in May in India</h3>
+          </div>
+
+          <div class="story-card">
+            <img src="./img/NewsTravelStories/NTS-3.jpeg" alt="" />
+            <div class="story-overlay"></div>
+            <h3>10 Best Places to Visit in February in India</h3>
+          </div>
+
+          <div class="story-card">
+            <img src="./img/NewsTravelStories/NTS-4.jpg" alt="" />
+            <div class="story-overlay"></div>
+            <h3>
+              Green Getaways: How Odisha's Eco Retreats Redefine Responsible
+              Travel
+            </h3>
+          </div>
+
+          <div class="story-card">
+            <img src="./img/NewsTravelStories/NTS-5.jpg" alt="" />
+            <div class="story-overlay"></div>
+            <h3>11 Perfect Places to Bring In New Year in India</h3>
+          </div>
+        </div>
+
+        <div class="stories-pagination">
+          <span class="active-dot"></span>
+          <span></span>
+        </div>
+      </section>
+
+      <!-- About ixigo -->
+      <section class="about-section">
+        <h2>About ixigo</h2>
+
+        <p>
+          Launched in 2007, ixigo is a technology company focused on empowering
+          Indian travellers to plan, book and manage their trips across rail,
+          air, buses and hotels. We assist travellers in making smarter travel
+          decisions by leveraging artificial intelligence, machine learning, and
+          data science led innovations on our OTA platforms, comprising our
+          websites and mobile applications. Our vision is to become the most
+          customer-centric travel company, by offering the best customer
+          experience to our users. Our focus on travel utility and customer
+          experience for travellers in the 'next billion user' segment is driven
+          by technology, cost-efficiency and our culture of innovation has made
+          us India's leading travel ecosystem for the 'next billion users'....
+        </p>
+
+        <a href="#" class="read-more">Read more</a>
+      </section>
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="footer-tabs">
+          <a href="#" class="active-tab">Popular Flight Routes</a>
+          <a href="#">Top Flight Routes</a>
+          <a href="#">Popular Train Routes</a>
+          <a href="#">Top Train Routes</a>
+          <a href="#">Top Hotel Destinations</a>
+          <a href="#">Plan Your Trip</a>
+        </div>
+
+        <div class="footer-routes">
+          <ul>
+            <li><a href="#">New Delhi to Goa Flights</a></li>
+            <li><a href="#">Mumbai to Dubai Flights</a></li>
+            <li><a href="#">Hyderabad to Purnea Flights</a></li>
+            <li><a href="#">Abu Dhabi to Gorakhpur Flights</a></li>
+          </ul>
+
+          <ul>
+            <li><a href="#">Mumbai to Kolkata Flights</a></li>
+            <li><a href="#">New Delhi to Hyderabad Flights</a></li>
+            <li><a href="#">Darbhanga to Mumbai Flights</a></li>
+            <li><a href="#">Kolkata to Dubai Flights</a></li>
+          </ul>
+
+          <ul>
+            <li><a href="#">New Delhi to Dubai Flights</a></li>
+            <li><a href="#">Mumbai to Varanasi Flights</a></li>
+            <li><a href="#">Doha to Gorakhpur Flights</a></li>
+            <li><a href="#">Mumbai to Bali Flights</a></li>
+          </ul>
+
+          <ul>
+            <li><a href="#">New Delhi to Kolkata Flights</a></li>
+            <li><a href="#">Mumbai to Goa Flights</a></li>
+            <li><a href="#">Bengaluru to Nagpur Flights</a></li>
+            <li><a href="#">Doha to Patna Flights</a></li>
+          </ul>
+
+          <ul>
+            <li><a href="#">Bengaluru to Kolkata Flights</a></li>
+            <li><a href="#">Pune to Lucknow Flights</a></li>
+            <li><a href="#">Bhubaneswar to Mumbai Flights</a></li>
+            <li><a href="#">Goa to Hyderabad Flights</a></li>
+          </ul>
+        </div>
+
+        <div class="important-links">
+          <h3>Important Links</h3>
+
+          <div class="links-list">
+            <a href="#">IRCTC Trains</a>
+            <a href="#">Tatkal Railway Reservation</a>
+            <a href="#">PNR Status</a>
+            <a href="#">Train Running Status</a>
+            <a href="#">Flight Booking</a>
+            <a href="#">International Flights</a>
+            <a href="#">Student Flight Booking</a>
+            <a href="#">Armed Forces Flight Booking</a>
+            <a href="#">Airlines</a>
+            <a href="#">Web Check-in Online</a>
+            <a href="#">Flight Status List</a>
+            <a href="#">Airport Cab Booking</a>
+            <a href="#">Travel Stories</a>
+            <a href="#">Visa for Indians</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © 2026 Le Travenues Technology Ltd. India. All brands are trademarks
+          of their respective owners.
+        </p>
+
+        <div class="social-icons">
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter-x"></i>
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-linkedin"></i>
+          <i class="bi bi-youtube"></i>
+        </div>
+      </div>
+      <div style="text-align: center; font-size: 10px; color: #6b6b7a;">Aryan Jha</div>
+    </footer>
+  </body>
+</html>

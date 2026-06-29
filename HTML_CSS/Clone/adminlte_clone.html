@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AdminLTE v4 Frontend Clone</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      :root {
+        --sidebar-bg: #343a40;
+        --sidebar-muted: #cfd4da;
+        --sidebar-active: #495057;
+        --page-bg: #f4f6f9;
+        --card-bg: #ffffff;
+        --line: #dee2e6;
+        --text: #212529;
+        --muted: #6c757d;
+        --info: #0D6EFD;
+        --success: #198754;
+        --warning: #ffc107;
+        --danger: #dc3545;
+        --radius: 0.4rem;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--page-bg);
+        color: var(--text);
+      }
+
+      .layout {
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .brand {
+        background: var(--sidebar-bg);
+        color: #fff;
+        border-bottom: 1px solid #4b545c;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-size: 1.15rem;
+        font-weight: 300;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 244px;
+        height: 57px;
+        z-index: 1050;
+      }
+
+      .brand-logo {
+        width: 31px;
+        height: 31px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        display: grid;
+        place-items: center;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .brand-text {
+        font-size: 1.15rem;
+        line-height: 1;
+      }
+
+      .topbar {
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        padding: 0 1.15rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        left: 244px;
+        right: 0;
+        height: 57px;
+        z-index: 1040;
+      }
+
+      .topbar-left,
+      .topbar-right {
+        display: flex;
+        align-items: center;
+        gap: 0.95rem;
+        color: #495057;
+        font-size: 0.9rem;
+      }
+
+      .top-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        border: 1px solid transparent;
+        color: #495057;
+        position: relative;
+      }
+
+      .top-icon:hover {
+        background: #f8f9fa;
+        border-color: var(--line);
+      }
+
+      .top-link {
+        color: #495057;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-size: 0.92rem;
+      }
+
+      .top-link:hover {
+        color: #212529;
+      }
+
+      .notif-badge {
+        position: absolute;
+        top: 1px;
+        right: -2px;
+        min-width: 14px;
+        height: 14px;
+        border-radius: 999px;
+        font-size: 0.58rem;
+        font-weight: 700;
+        color: #fff;
+        display: grid;
+        place-items: center;
+        padding: 0 3px;
+      }
+
+      .notif-red {
+        background: #dc3545;
+      }
+
+      .notif-yellow {
+        background: #ffc107;
+        color: #111;
+      }
+
+      .profile-chip {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-left: 0.35rem;
+      }
+
+      .profile-avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid #ced4da;
+        background: linear-gradient(150deg, #ced4da, #6c757d);
+      }
+
+      .profile-name {
+        font-size: 0.95rem;
+        color: #495057;
+      }
+
+      .sidebar {
+        background: var(--sidebar-bg);
+        color: var(--sidebar-muted);
+        border-right: 1px solid #4b545c;
+        overflow-y: auto;
+        position: fixed;
+        top: 57px;
+        left: 0;
+        bottom: 0;
+        width: 244px;
+      }
+
+      .side-title {
+        padding: 0.85rem 0.7rem 0.45rem;
+        font-size: 0.76rem;
+        color: #bfc5ca;
+        letter-spacing: 0.01em;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .menu {
+        list-style: none;
+        padding: 0 0.5rem 0.35rem;
+      }
+
+      .menu li {
+        min-height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.58rem 0.72rem;
+        border-radius: var(--radius);
+        margin-bottom: 0.12rem;
+        font-size: 0.94rem;
+        color: var(--sidebar-muted);
+      }
+
+      .menu-left {
+        display: flex;
+        align-items: center;
+        gap: 0.72rem;
+      }
+
+      .menu-icon {
+        width: 18px;
+        text-align: center;
+        color: #bfc5ca;
+      }
+
+      .menu li.active {
+        background: var(--sidebar-active);
+        color: #fff;
+      }
+
+      .menu li.active .menu-icon,
+      .menu li.active .menu-right {
+        color: #fff;
+      }
+
+      .menu li:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+
+      .menu li:hover .menu-icon,
+      .menu li:hover .menu-right {
+        color: #fff;
+      }
+
+      .sub-menu {
+        list-style: none;
+        margin: -0.05rem 0 0.35rem;
+        padding: 0 0 0 0.38rem;
+      }
+
+      .sub-item {
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.58rem 0.72rem;
+        border-radius: var(--radius);
+        margin-bottom: 0.08rem;
+        color: #cfd4da;
+        font-size: 0.98rem;
+      }
+
+      .submenu-wrap {
+        list-style: none;
+      }
+
+      .sub-item:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+
+      .sub-item.active {
+        background: #495057;
+        color: #fff;
+      }
+
+      .sub-dot {
+        font-size: 0.95rem;
+        width: 18px;
+        text-align: center;
+        color: #d3d8dd;
+      }
+
+      .sub-item.active .sub-dot,
+      .sub-item:hover .sub-dot {
+        color: #fff;
+      }
+
+      .menu-right {
+        display: flex;
+        align-items: center;
+        gap: 0.42rem;
+        color: #bfc5ca;
+        font-size: 0.88rem;
+      }
+
+      .pill {
+        min-width: 18px;
+        height: 20px;
+        border-radius: 6px;
+        background: #6c757d;
+        color: #fff;
+        font-size: 0.75rem;
+        display: grid;
+        place-items: center;
+        padding: 0 6px;
+      }
+
+      .content-wrap {
+        display: flex;
+        flex-direction: column;
+        margin-left: 244px;
+        padding-top: 57px;
+      }
+
+      .content-header {
+        height: 68px;
+        padding: 0 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .page-title {
+        font-size: 1.45rem;
+        font-weight: 400;
+      }
+
+      .breadcrumb {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .main {
+        padding: 0 1.3rem 1.3rem;
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 1rem;
+        align-content: start;
+      }
+
+      .small-box {
+        grid-column: span 3;
+        min-height: 150px;
+        border-radius: var(--radius);
+        color: #fff;
+        overflow: hidden;
+        box-shadow:
+          0 0 1px rgba(0, 0, 0, 0.12),
+          0 1px 3px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .small-box-top {
+        padding: 0.8rem 0.95rem 0.3rem;
+        display: flex;
+        justify-content: space-between ;
+        align-items: flex-start;
+      }
+
+      .small-box h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .small-box p {
+        font-size: 0.95rem;
+        margin-top: 0.32rem;
+      }
+
+      .icon-fake {
+        width: 56px;
+        height: 56px;
+        border-radius: 10px;
+        /* background: rgba(255, 255, 255, 0.24); */
+        color: rgba(123, 118, 118, 0.459);
+        display: grid;
+        justify-content: start;
+        align-items: end;
+        font-size: 3rem;
+
+      }
+
+      .small-box-bottom {
+        height: 30px;
+        background: rgba(0, 0, 0, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.84rem;
+      }
+
+      .bg-info {
+        background: var(--info);
+      }
+
+      .bg-success {
+        background: var(--success);
+      }
+
+      .bg-warning {
+        background: var(--warning);
+        color: #111;
+      }
+
+      .bg-danger {
+        background: var(--danger);
+      }
+
+      .card {
+        background: var(--card-bg);
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: var(--radius);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
+      }
+
+      .card-header {
+        min-height: 48px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.075);
+        padding: 0 0.9rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1rem;
+      }
+
+      .card-tools {
+        display: flex;
+        gap: 0.35rem;
+      }
+
+      .tool-btn {
+        width: 26px;
+        height: 26px;
+        border-radius: 4px;
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .card-body {
+        padding: 1rem;
+      }
+
+      .sales-card {
+        grid-column: span 8;
+      }
+
+      .visitors-card {
+        grid-column: span 4;
+      }
+
+      .chart-fake {
+        height: 270px;
+        border-radius: 0.35rem;
+        background: #f8f9fa;
+        border: 1px solid #e3e6ea;
+      }
+
+      .map-fake {
+        height: 270px;
+        border-radius: 0.35rem;
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        background-color: #2f80ed;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 96% auto;
+      }
+
+      .direct-chat-card {
+        grid-column: span 8;
+      }
+
+      .chat-tools {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: #7c8791;
+      }
+
+      .chat-count {
+        min-width: 24px;
+        height: 26px;
+        border-radius: 7px;
+        background: #0d6efd;
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 0 6px;
+      }
+
+      .direct-chat-body {
+        max-height: 320px;
+        overflow-y: auto;
+        border-bottom: 1px solid #e9ecef;
+      }
+
+      .chat-message {
+        margin-bottom: 1rem;
+      }
+
+      .chat-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.42rem;
+        color: #495057;
+      }
+
+      .chat-name {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .chat-time {
+        font-size: 0.95rem;
+        color: #495057;
+      }
+
+      .chat-row {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .chat-row.right {
+        justify-content: flex-end;
+      }
+
+      .chat-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid #d5d8dc;
+        background: linear-gradient(150deg, #eceff1, #b0b7bd);
+        flex-shrink: 0;
+      }
+
+      .chat-bubble {
+        flex: 1;
+        border-radius: 10px;
+        padding: 0.76rem 0.9rem;
+        font-size: 0.95rem;
+        line-height: 1.35;
+      }
+
+      .chat-bubble.left {
+        background: #ced4da;
+        color: #111;
+      }
+
+      .chat-bubble.right {
+        background: #0d6efd;
+        color: #fff;
+        flex: 0 1 88%;
+      }
+
+      .direct-chat-footer {
+        padding: 0.75rem;
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .chat-input {
+        flex: 1;
+        border: 1px solid #d1d5da;
+        border-radius: 8px;
+        padding: 0.7rem 0.9rem;
+        font-size: 0.95rem;
+      }
+
+      .chat-send {
+        border: none;
+        border-radius: 8px;
+        background: #0d6efd;
+        color: #fff;
+        font-size: 1rem;
+        padding: 0 1.15rem;
+      }
+
+      .footer {
+        background: #fff;
+        border-top: 1px solid var(--line);
+        padding: 0 1.15rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #6c757d;
+        font-size: 0.9rem;
+        margin-left: 244px;
+        min-height: 52px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <div class="brand">
+        <div class="brand-logo">A</div>
+        <span class="brand-text">AdminLTE 4</span>
+      </div>
+
+      <nav class="topbar">
+        <div class="topbar-left">
+          <div class="top-icon" aria-label="menu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <a class="top-link" href="#"
+            ><i class="fa-regular fa-rectangle-list"></i> Live preview</a
+          >
+          <a class="top-link" href="#"
+            ><i class="fa-regular fa-map"></i> Documentation</a
+          >
+        </div>
+        <div class="topbar-right">
+          <div class="top-icon" aria-label="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="top-icon" aria-label="messages">
+            <i class="fa-regular fa-comments"></i>
+            <span class="notif-badge notif-red">3</span>
+          </div>
+          <div class="top-icon" aria-label="notifications">
+            <i class="fa-solid fa-bell"></i>
+            <span class="notif-badge notif-yellow">15</span>
+          </div>
+          <div class="top-icon" aria-label="fullscreen">
+            <i class="fa-solid fa-expand"></i>
+          </div>
+          <div class="top-icon" aria-label="theme">
+            <i class="fa-regular fa-sun"></i>
+          </div>
+          <div class="profile-chip">
+            <div class="profile-avatar"></div>
+            <div class="profile-name">Alexander Pierce</div>
+          </div>
+        </div>
+      </nav>
+
+      <aside class="sidebar">
+        <ul class="menu">
+          <li class="active">
+            <div class="menu-left">
+              <span class="menu-icon"><i class="fa-solid fa-gauge"></i></span>
+              <span>Dashboard</span>
+            </div>
+            <span class="menu-right"
+              ><i class="fa-solid fa-angle-down"></i
+            ></span>
+          </li>
+          <li class="submenu-wrap">
+            <ul class="sub-menu">
+              <li class="sub-item active">
+                <span class="sub-dot"
+                  ><i class="fa-regular fa-circle"></i
+                ></span>
+                <span>Dashboard v1</span>
+              </li>
+              <li class="sub-item">
+                <span class="sub-dot"
+                  ><i class="fa-regular fa-circle"></i
+                ></span>
+                <span>Dashboard v2</span>
+              </li>
+              <li class="sub-item">
+                <span class="sub-dot"
+                  ><i class="fa-regular fa-circle"></i
+                ></span>
+                <span>Dashboard v3</span>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"><i class="fa-solid fa-palette"></i></span>
+              <span>Theme Generate</span>
+            </div>
+          </li>
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"><i class="fa-solid fa-cube"></i></span>
+              <span>Widgets</span>
+            </div>
+            <span class="menu-right"
+              ><i class="fa-solid fa-angle-right"></i
+            ></span>
+          </li>
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"
+                ><i class="fa-solid fa-clipboard"></i
+              ></span>
+              <span>Layout Options</span>
+            </div>
+            <span class="menu-right"
+              ><span class="pill">7</span><i class="fa-solid fa-angle-right"></i
+            ></span>
+          </li>
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"><i class="fa-solid fa-shapes"></i></span>
+              <span>UI Elements</span>
+            </div>
+            <span class="menu-right"
+              ><i class="fa-solid fa-angle-right"></i
+            ></span>
+          </li>
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"
+                ><i class="fa-regular fa-envelope"></i
+              ></span>
+              <span>Mailbox</span>
+            </div>
+            <span class="menu-right"
+              ><i class="fa-solid fa-angle-right"></i
+            ></span>
+          </li>
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"
+                ><i class="fa-regular fa-pen-to-square"></i
+              ></span>
+              <span>Forms</span>
+            </div>
+            <span class="menu-right"
+              ><i class="fa-solid fa-angle-right"></i
+            ></span>
+          </li>
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"
+                ><i class="fa-solid fa-table-cells-large"></i
+              ></span>
+              <span>Tables</span>
+            </div>
+            <span class="menu-right"
+              ><i class="fa-solid fa-angle-right"></i
+            ></span>
+          </li>
+        </ul>
+
+        <div class="side-title">Pages</div>
+        <ul class="menu">
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"
+                ><i class="fa-regular fa-file-lines"></i
+              ></span>
+              <span>Pages</span>
+            </div>
+            <span class="menu-right"
+              ><i class="fa-solid fa-angle-right"></i
+            ></span>
+          </li>
+        </ul>
+
+        <div class="side-title">Examples</div>
+        <ul class="menu">
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"
+                ><i class="fa-solid fa-arrow-right-to-bracket"></i
+              ></span>
+              <span>Auth</span>
+            </div>
+            <span class="menu-right"
+              ><i class="fa-solid fa-angle-right"></i
+            ></span>
+          </li>
+        </ul>
+
+        <div class="side-title">Multi Level Example</div>
+        <ul class="menu">
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"><i class="fa-solid fa-circle"></i></span>
+              <span>Level 1</span>
+            </div>
+          </li>
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"><i class="fa-solid fa-circle"></i></span>
+              <span>Level 1</span>
+            </div>
+            <span class="menu-right"
+              ><i class="fa-solid fa-angle-right"></i
+            ></span>
+          </li>
+          <li>
+            <div class="menu-left">
+              <span class="menu-icon"><i class="fa-solid fa-circle"></i></span>
+              <span>Level 1</span>
+            </div>
+          </li>
+        </ul>
+      </aside>
+
+      <div class="content-wrap">
+        <header class="content-header">
+          <h1 class="page-title">Dashboard v1</h1>
+          <div class="breadcrumb"><span style="color: blue;">Home</span> / Dashboard v1</div>
+        </header>
+
+        <main class="main">
+          <section class="small-box bg-info">
+            <div class="small-box-top">
+              <div>
+                <h3>150</h3>
+                <p>New Orders</p>
+              </div>
+              <div class="icon-fake"><i class="fa fa-shopping-cart" style="color: rgba(128, 128, 128, 0.459)"></i></div>
+            </div>
+            <div class="small-box-bottom">More info &nbsp;<i class="fa fa-link"></i></div>
+          </section>
+
+          <section class="small-box bg-success">
+            <div class="small-box-top">
+              <div>
+                <h3>53%</h3>
+                <p>Bounce Rate</p>
+              </div>
+              <div class="icon-fake"><i class="fa fa-chart-bar"></i></div>
+            </div>
+            <div class="small-box-bottom">More info &nbsp;<i class="fa fa-link"></i></div>
+          </section>
+
+          <section class="small-box bg-warning">
+            <div class="small-box-top">
+              <div>
+                <h3>44</h3>
+                <p>User Registrations</p>
+              </div>
+              <div class="icon-fake"><i class="fa fa-users"></i></div>
+            </div>
+            <div class="small-box-bottom">More info &nbsp;<i class="fa fa-link"></i></div>
+          </section>
+
+          <section class="small-box bg-danger">
+            <div class="small-box-top">
+              <div>
+                <h3>65</h3>
+                <p>Unique Visitors</p>
+              </div>
+              <div class="icon-fake"><i class="fa fa-chart-pie"></i></div>
+            </div>
+            <div class="small-box-bottom">More info &nbsp;<i class="fa fa-link"></i></div>
+          </section>
+
+          <section class="card sales-card">
+            <div class="card-header">
+              <span>Sales Value</span>
+              <div class="card-tools">
+                <button class="tool-btn" aria-label="tool"></button>
+                <button class="tool-btn" aria-label="tool"></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="chart-fake"></div>
+            </div>
+          </section>
+
+          <section class="card visitors-card">
+            <div class="card-header">
+              <span>Sales Value</span>
+              <div class="card-tools">
+                <button class="tool-btn" aria-label="tool"></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="map-fake"></div>
+            </div>
+          </section>
+
+          <section class="card direct-chat-card">
+            <div class="card-header">
+              <span>Direct Chat</span>
+              <div class="chat-tools">
+                <span class="chat-count">3</span>
+                <i class="fa-solid fa-minus"></i>
+                <i class="fa-solid fa-comment-dots"></i>
+                <i class="fa-solid fa-xmark"></i>
+              </div>
+            </div>
+            <div class="card-body direct-chat-body">
+              <div class="chat-message">
+                <div class="chat-meta">
+                  <span class="chat-name">Alexander Pierce</span>
+                  <span class="chat-time">23 Jan 2:00 pm</span>
+                </div>
+                <div class="chat-row">
+                  <div class="chat-avatar"></div>
+                  <div class="chat-bubble left">
+                    Is this template really for free? That's unbelievable!
+                  </div>
+                </div>
+              </div>
+
+              <div class="chat-message">
+                <div class="chat-meta">
+                  <span class="chat-time">23 Jan 2:05 pm</span>
+                  <span class="chat-name">Sarah Bullock</span>
+                </div>
+                <div class="chat-row right">
+                  <div class="chat-bubble right">You better believe it!</div>
+                  <div class="chat-avatar"></div>
+                </div>
+              </div>
+
+              <div class="chat-message">
+                <div class="chat-meta">
+                  <span class="chat-name">Alexander Pierce</span>
+                  <span class="chat-time">23 Jan 5:37 pm</span>
+                </div>
+                <div class="chat-row">
+                  <div class="chat-avatar"></div>
+                  <div class="chat-bubble left">
+                    Working with AdminLTE on a great new app! Wanna join?
+                  </div>
+                </div>
+              </div>
+
+              <div class="chat-message" style="margin-bottom: 0">
+                <div class="chat-meta">
+                  <span class="chat-time">23 Jan 6:10 pm</span>
+                  <span class="chat-name">Sarah Bullock</span>
+                </div>
+              </div>
+            </div>
+            <div class="direct-chat-footer">
+              <input
+                class="chat-input"
+                type="text"
+                placeholder="Type Message ..."
+              />
+              <button class="chat-send">Send</button>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <div>Copyright 2014-2026 AdminLTE.io. All rights reserved.</div>
+        <div><strong>Anything you want</strong></div>
+      </footer>
+    </div>
+  </body>
+</html>
