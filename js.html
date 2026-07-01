@@ -4,15 +4,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Employee Query & Table</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            margin: 0;
+            padding: 2.5rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(30, 41, 59, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            height: fit-content;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            background: linear-gradient(to right, #6366f1, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .query-card {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .query-card strong {
+            color: #818cf8;
+        }
+
+        .query-card em {
+            color: #10b981;
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: rgba(15, 23, 42, 0.6);
+            padding: 1rem 1.25rem;
+            color: #94a3b8;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        /* Highlight matching employee row */
+        .highlight-row td {
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+            font-weight: 500;
+            border-top: 1px solid rgba(16, 185, 129, 0.25);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.25);
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <h1>Employee Directory</h1>
+        
+        <!-- Query Match Output -->
+        <div id="query-output" class="query-card">
+            Searching for employee...
+        </div>
+
+        <!-- Table Display -->
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Age</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Rows will be dynamically loaded -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <script>
         let department = [
-            {Dname : "IT", Dcode: 58, employees : {id: 1, employees :{}}}
-        ]
+            { Dname: "IT", Dcode: 58, employees: { id: 1, employees: {} } }
+        ];
 
+        // Original employees list
         let employees = [
             { name: "bhupendr", salary: 70, age: 50, country: "india", department: "IT" },
             { name: "rohan", salary: 50, age: 14, country: "london", department: "Finance" },
@@ -26,7 +160,47 @@
             { name: "khushi", salary: 35, age: 99, country: "brazil", department: "IT" },
             { name: "parul", salary: 500, age: 34, country: "zamaika", department: "CEO" }
         ];
-        console.log();
+
+        // 1. Adding "rishu" who is from the HR department and from india.
+        employees.push({ name: "rishu", salary: 90, age: 25, country: "india", department: "HR" });
+
+        const tableBody = document.getElementById("table-body");
+        const queryOutput = document.getElementById("query-output");
+
+        let rowsHtml = "";
+        let matchedMsg = "";
+
+        // Using forEach loop and template literals to construct table rows and identify matching employee
+        employees.forEach(emp => {
+            const isMatch = emp.department === "HR" && emp.name.toLowerCase() === "rishu" && emp.country.toLowerCase() === "india";
+            
+            if (isMatch) {
+                // Template literal for matching message
+                matchedMsg = `<strong>Match Result:</strong> Found employee <em>${emp.name}</em> who works in the <em>${emp.department}</em> department and is from <em>${emp.country}</em>.`;
+                console.log(`Matched Employee: ${emp.name} is from the ${emp.department} department and is from ${emp.country}.`);
+            }
+
+            // Template literal for creating table rows
+            rowsHtml += `
+                <tr class="${isMatch ? 'highlight-row' : ''}">
+                    <td style="text-transform: capitalize;">${emp.name}</td>
+                    <td>${emp.department}</td>
+                    <td>$${emp.salary}k</td>
+                    <td>${emp.age} yrs</td>
+                    <td style="text-transform: capitalize;">${emp.country}</td>
+                </tr>
+            `;
+        });
+
+        // Insert rows into the employee table
+        tableBody.innerHTML = rowsHtml;
+
+        // Display search result message
+        if (matchedMsg) {
+            queryOutput.innerHTML = matchedMsg;
+        } else {
+            queryOutput.innerHTML = `<strong>Match Result:</strong> No employee matched the criteria.`;
+        }
     </script>
 </body>
 
