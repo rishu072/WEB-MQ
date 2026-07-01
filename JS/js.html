@@ -106,6 +106,21 @@
             return item.name.toLowerCase().startsWith('s');
         });
         console.log("Employees whose names start with 'S':", startsWithS);
+
+        // Separate filters for each department (IT, CS, and all others)
+        let itEmployees = employees.filter(item => item.department.toLowerCase() === 'it');
+        let csEmployees = employees.filter(item => item.department.toLowerCase() === 'cs');
+        let hrEmployees = employees.filter(item => item.department.toLowerCase() === 'hr');
+        let financeEmployees = employees.filter(item => item.department.toLowerCase() === 'finance');
+        let marketingEmployees = employees.filter(item => item.department.toLowerCase() === 'marketing');
+        let ceoEmployees = employees.filter(item => item.department.toLowerCase() === 'ceo');
+
+        console.log("IT Department Employees:", itEmployees);
+        console.log("CS Department Employees (Empty):", csEmployees);
+        console.log("HR Department Employees:", hrEmployees);
+        console.log("Finance Department Employees:", financeEmployees);
+        console.log("Marketing Department Employees:", marketingEmployees);
+        console.log("CEO Department Employees:", ceoEmployees);
     </script>
 </body>
 
