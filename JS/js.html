@@ -54,8 +54,10 @@
             { name: "khushi", salary: 35, age: 99, country: "brazil", department: "IT" },
             { name: "parul", salary: 500, age: 34, country: "zamaika", department: "CEO" }
         ];
- 
+        
         employees.push({ name: "rishu", salary: 90, age: 25, country: "india", department: "HR" });
+        // Adding a new employee object with valid properties (corrected typo: counntry -> country)
+        employees.push({ name: "brksaajaskp", salary: 79,  age: 27, country: "india", department: "nnrno" });
 
         const tableBody = document.getElementById("table-body");
         const queryOutput = document.getElementById("query-output");
@@ -72,7 +74,6 @@
                 matchedMsg = `<strong>Match Result:</strong> Found employee <em>${emp.name}</em> who works in the <em>${emp.department}</em> department and is from <em>${emp.country}</em>.`;
                 console.log(`Matched Employee: ${emp.name} is from the ${emp.department} department and is from ${emp.country}.`);
             }
-
 
             rowsHtml += `
                 <tr class="${isMatch ? 'highlight-row' : ''}">
@@ -119,6 +120,72 @@
         console.log("Finance Department Employees:", financeEmployees);
         console.log("Marketing Department Employees:", marketingEmployees);
         console.log("CEO Department Employees:", ceoEmployees);
+
+        // --- Additional Calculations ---
+
+        // 1. Map to get name, first letter, and salary for each employee
+        let firstLetterAndSalary = employees.map(emp => {
+            return {
+                firstLetter: emp.name.trim().charAt(0).toUpperCase(),
+                name: emp.name,
+                salary: emp.salary
+            };
+        });
+        console.log("Employees Name First Letter and Salary:", firstLetterAndSalary);
+
+        // 2. Average salary of all employees
+        let avgSalaryAll = employees.reduce((sum, emp) => sum + emp.salary, 0) / employees.length;
+        console.log(`Average Salary of all employees: $${avgSalaryAll.toFixed(2)}k`);
+
+        // 3. Average salary by department
+        let deptTotals = {};
+        let deptCounts = {};
+        employees.forEach(emp => {
+            let dept = emp.department;
+            deptTotals[dept] = (deptTotals[dept] || 0) + emp.salary;
+            deptCounts[dept] = (deptCounts[dept] || 0) + 1;
+        });
+        let deptAverages = Object.keys(deptTotals).map(dept => {
+            return {
+                department: dept,
+                avgSalary: (deptTotals[dept] / deptCounts[dept]).toFixed(2)
+            };
+        });
+        console.log("Average Salary by Department:", deptAverages);
+
+        // 4. Chosen country filtering (e.g., "india")
+        let chosenCountry = "india";
+        let countryFilterList = employees.filter(emp => emp.country.toLowerCase() === chosenCountry.toLowerCase());
+        console.log(`Employees from chosen country (${chosenCountry}):`, countryFilterList);
+
+        // 5. Output to stats-output element on the page
+        const statsOutput = document.getElementById("stats-output");
+        
+        let mappedNamesHtml = firstLetterAndSalary.map(item => {
+            return `<li>First Letter: <strong>${item.firstLetter}</strong> | Name: <em>${item.name}</em> | Salary: <em>$${item.salary}k</em></li>`;
+        }).join("");
+
+        let deptAveragesHtml = deptAverages.map(item => {
+            return `<li>${item.department}: <strong>$${item.avgSalary}k</strong></li>`;
+        }).join("");
+
+        let countryListHtml = countryFilterList.map(item => {
+            return `<li style="text-transform: capitalize;">${item.name} (${item.department})</li>`;
+        }).join("");
+
+        statsOutput.innerHTML = `
+            <strong>1. Name, First Letter & Salary:</strong>
+            <ul>${mappedNamesHtml}</ul>
+            <hr style="margin: 1rem 0; border: none; border-top: 1px solid rgba(255,255,255,0.15);">
+            <strong>2. Average Salary of All Employees:</strong>
+            <p><strong>$${avgSalaryAll.toFixed(2)}k</strong></p>
+            <hr style="margin: 1rem 0; border: none; border-top: 1px solid rgba(255,255,255,0.15);">
+            <strong>3. Average Salary by Department:</strong>
+            <ul>${deptAveragesHtml}</ul>
+            <hr style="margin: 1rem 0; border: none; border-top: 1px solid rgba(255,255,255,0.15);">
+            <strong>4. Employees from Chosen Country (${chosenCountry.toUpperCase()}):</strong>
+            <ul>${countryListHtml}</ul>
+        `;
     </script>
 </body>
 
