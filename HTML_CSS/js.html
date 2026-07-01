@@ -16,6 +16,11 @@
             Searching for employee...
         </div>
 
+        <!-- Country Transfer Output -->
+        <div id="country-transfers-output" class="query-card" style="margin-top: 1rem;">
+            Calculating country payroll transfers...
+        </div>
+
         <!-- Table Display -->
         <div class="table-wrapper">
             <table>
@@ -37,7 +42,9 @@
 
     <script>
         let department = [
-            { Dname: "IT", Dcode: 58, employees: { id: 1, employees: {} } }
+            { Dname: "IT", Dcode: 58, employees: { id: 1, employees: {} } },
+            { Dname: "Finance", Dcode: 158, employees: [{}, {}] },
+            { Dname: "CEO", Dcode: 2, employees: [] }
         ];
 
         // Original employees list
@@ -57,16 +64,20 @@
 
         // 1. Adding "rishu" who is from the HR department and from india.
         // hr - 3
+        // how much money to transfer which contary.
+        
+        let HR = [{}]
+        let Finance = [{}]
         employees.push({ name: "rishu", salary: 90, age: 25, country: "india", department: "HR" });
 
         const tableBody = document.getElementById("table-body");
         const queryOutput = document.getElementById("query-output");
+        const countryTransfersOutput = document.getElementById("country-transfers-output");
 
-        let rowsHtml = "";
         let matchedMsg = "";
 
-        // Using forEach loop and template literals to construct table rows and identify matching employee
-        employees.forEach(emp => {
+        // Using map and template literals to construct table rows and identify matching employee
+        let rowsHtml = employees.map(emp => {
             const isMatch = emp.department === "HR" && emp.name.toLowerCase() === "rishu" && emp.country.toLowerCase() === "india";
             
             if (isMatch) {
@@ -75,8 +86,7 @@
                 console.log(`Matched Employee: ${emp.name} is from the ${emp.department} department with a salary of $${emp.salary}k and is from ${emp.country}.`);
             }
 
-
-            rowsHtml += `
+            return `
                 <tr class="${isMatch ? 'highlight-row' : ''}">
                     <td style="text-transform: capitalize;">${emp.name}</td>
                     <td>${emp.department}</td>
@@ -85,7 +95,7 @@
                     <td style="text-transform: capitalize;">${emp.country}</td>
                 </tr>
             `;
-        });
+        }).join("");
 
         tableBody.innerHTML = rowsHtml;
 
@@ -95,6 +105,29 @@
         } else {
             queryOutput.innerHTML = `<strong>Match Result:</strong> No employee matched the criteria.`;
         }
+        
+        // --- Calculate and Display Payroll Transfers by Country ---
+        let countrySalaries = {};
+        employees.forEach(emp => {
+            let country = emp.country.trim().toLowerCase();
+            // Format country name nicely (capitalized)
+            country = country.charAt(0).toUpperCase() + country.slice(1);
+            countrySalaries[country] = (countrySalaries[country] || 0) + Number(emp.salary);
+        });
+
+        // Use map and template literals to format the transfers list
+        let transfersListHtml = Object.entries(countrySalaries).map(([country, total]) => {
+            const logMsg = `${country}: $${total}k`;
+            console.log(`Transfer request - Country: ${country}, Total Amount: $${total}k`);
+            return `<li>${country}: <strong>$${total}k</strong></li>`;
+        }).join("");
+
+        countryTransfersOutput.innerHTML = `
+            <strong>Money to Transfer by Country:</strong>
+            <ul>
+                ${transfersListHtml}
+            </ul>
+        `;
     </script>
 </body>
 
