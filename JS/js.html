@@ -96,12 +96,16 @@
             queryOutput.innerHTML = `<strong>Match Result:</strong> No employee matched the criteria.`;
         }
         
-        
-
         let filterArr = employees.filter(item => {
             return item.salary > 50;
         });
         console.log(filterArr);
+
+        // Filter employees whose names start with 'S' or 's'
+        let startsWithS = employees.filter(item => {
+            return item.name.toLowerCase().startsWith('s');
+        });
+        console.log("Employees whose names start with 'S':", startsWithS);
     </script>
 </body>
 
