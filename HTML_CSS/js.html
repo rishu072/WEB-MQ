@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Query Table</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Employee Directory</h1>
+
+        <!-- Query Match Output -->
+        <div id="query-output" class="query-card">
+            Searching for employee...
+        </div>
+
+        <!-- Table Display -->
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Age</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Rows will be dynamically loaded -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        let department = [
+            { Dname: "IT", Dcode: 58, employees: { id: 1, employees: {} } }
+        ];
+
+        // Original employees list
+        let employees = [
+            { name: "bhupendr", salary: 70, age: 50, country: "india", department: "IT" },
+            { name: "rohan", salary: 50, age: 14, country: "london", department: "Finance" },
+            { name: "kartik", salary: 3, age: 2, country: "amarica", department: "HR" },
+            { name: "suraj", salary: 2, age: 19, country: "russia", department: "Finance" },
+            { name: "aryan", salary: 1, age: 70, country: "japan", department: "HR" },
+            { name: "aryan", salary: 88, age: 40, country: "japan", department: "IT" },
+            { name: "jatin", salary: 100, age: 12, country: "russia", department: "HR" },
+            { name: "aaditya", salary: 20, age: 19, country: "india", department: "Marketing" },
+            { name: "sachi", salary: 1, age: 2, country: "uganda", department: "Finance" },
+            { name: "khushi", salary: 35, age: 99, country: "brazil", department: "IT" },
+            { name: "parul", salary: 500, age: 34, country: "zamaika", department: "CEO" }
+        ];
+
+        // 1. Adding "rishu" who is from the HR department and from india.
+        // hr - 3
+        employees.push({ name: "rishu", salary: 90, age: 25, country: "india", department: "HR" });
+
+        const tableBody = document.getElementById("table-body");
+        const queryOutput = document.getElementById("query-output");
+
+        let rowsHtml = "";
+        let matchedMsg = "";
+
+        // Using forEach loop and template literals to construct table rows and identify matching employee
+        employees.forEach(emp => {
+            const isMatch = emp.department === "HR" && emp.name.toLowerCase() === "rishu" && emp.country.toLowerCase() === "india";
+            
+            if (isMatch) {
+               
+                matchedMsg = `<strong>Match Result:</strong> Found employee <em>${emp.name}</em> who works in the <em>${emp.department}</em> department and is from <em>${emp.country}</em>.`;
+                console.log(`Matched Employee: ${emp.name} is from the ${emp.department} department and is from ${emp.country}.`);
+            }
+
+
+            rowsHtml += `
+                <tr class="${isMatch ? 'highlight-row' : ''}">
+                    <td style="text-transform: capitalize;">${emp.name}</td>
+                    <td>${emp.department}</td>
+                    <td>$${emp.salary}k</td>
+                    <td>${emp.age} yrs</td>
+                    <td style="text-transform: capitalize;">${emp.country}</td>
+                </tr>
+            `;
+        });
+
+        tableBody.innerHTML = rowsHtml;
+
+       
+        if (matchedMsg) {
+            queryOutput.innerHTML = matchedMsg;
+        } else {
+            queryOutput.innerHTML = `<strong>Match Result:</strong> No employee matched the criteria.`;
+        }
+    </script>
+</body>
+
+</html>
