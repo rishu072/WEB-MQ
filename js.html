@@ -56,6 +56,7 @@
         ];
 
         // 1. Adding "rishu" who is from the HR department and from india.
+        // hr . 
         employees.push({ name: "rishu", salary: 90, age: 25, country: "india", department: "HR" });
 
         const tableBody = document.getElementById("table-body");
@@ -69,12 +70,12 @@
             const isMatch = emp.department === "HR" && emp.name.toLowerCase() === "rishu" && emp.country.toLowerCase() === "india";
             
             if (isMatch) {
-                // Template literal for matching message
+               
                 matchedMsg = `<strong>Match Result:</strong> Found employee <em>${emp.name}</em> who works in the <em>${emp.department}</em> department and is from <em>${emp.country}</em>.`;
                 console.log(`Matched Employee: ${emp.name} is from the ${emp.department} department and is from ${emp.country}.`);
             }
 
-            // Template literal for creating table rows
+
             rowsHtml += `
                 <tr class="${isMatch ? 'highlight-row' : ''}">
                     <td style="text-transform: capitalize;">${emp.name}</td>
@@ -86,10 +87,9 @@
             `;
         });
 
-        // Insert rows into the employee table
         tableBody.innerHTML = rowsHtml;
 
-        // Display search result message
+       
         if (matchedMsg) {
             queryOutput.innerHTML = matchedMsg;
         } else {
