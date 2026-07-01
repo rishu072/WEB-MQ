@@ -95,6 +95,11 @@
         } else {
             queryOutput.innerHTML = `<strong>Match Result:</strong> No employee matched the criteria.`;
         }
+
+        let filterArr = employees.filter(item => {
+            return item.salary > 50;
+        });
+        console.log(filterArr);
     </script>
 </body>
 
