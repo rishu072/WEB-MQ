@@ -47,7 +47,6 @@
             { Dname: "CEO", Dcode: 2, employees: [] }
         ];
 
-        // Original employees list
         let employees = [
             { name: "bhupendr", salary: 70, age: 50, country: "india", department: "IT" },
             { name: "rohan", salary: 50, age: 14, country: "london", department: "Finance" },
@@ -66,8 +65,6 @@
         // hr - 3
         // how much money to transfer which contary.
         
-        let HR = [{}]
-        let Finance = [{}]
         employees.push({ name: "rishu", salary: 90, age: 25, country: "india", department: "HR" });
 
         const tableBody = document.getElementById("table-body");
@@ -76,7 +73,6 @@
 
         let matchedMsg = "";
 
-        // Using map and template literals to construct table rows and identify matching employee
         let rowsHtml = employees.map(emp => {
             const isMatch = emp.department === "HR" && emp.name.toLowerCase() === "rishu" && emp.country.toLowerCase() === "india";
             
@@ -106,16 +102,16 @@
             queryOutput.innerHTML = `<strong>Match Result:</strong> No employee matched the criteria.`;
         }
         
-        // --- Calculate and Display Payroll Transfers by Country ---
+       
         let countrySalaries = {};
         employees.forEach(emp => {
             let country = emp.country.trim().toLowerCase();
-            // Format country name nicely (capitalized)
+   
             country = country.charAt(0).toUpperCase() + country.slice(1);
             countrySalaries[country] = (countrySalaries[country] || 0) + Number(emp.salary);
         });
 
-        // Use map and template literals to format the transfers list
+     
         let transfersListHtml = Object.entries(countrySalaries).map(([country, total]) => {
             const logMsg = `${country}: $${total}k`;
             console.log(`Transfer request - Country: ${country}, Total Amount: $${total}k`);
