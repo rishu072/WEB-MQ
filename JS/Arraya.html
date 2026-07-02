@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let employees = [
+            {
+                name: "bhupendr",
+                salary: 70,
+                age: 50,
+                country: "india",
+                department: "IT",
+                content_liked: ["food", "Travel_Vlogs", "art", "storytelling"],
+                products_in_cart: [
+                    { Pname: "Shirt", cost: 500 },
+                    { Pname: "Shoes", cost: 2500 },
+                    { Pname: "Watch", cost: 3500 }
+                ]
+            },
+            {
+                name: "rohan",
+                salary: 50,
+                age: 14,
+                country: "london",
+                department: "Finance",
+                content_liked: ["daily_vlogs", "science", "art", "motivational"],
+                products_in_cart: [
+                    { Pname: "Shirt", cost: 500 },
+                    { Pname: "Headphones", cost: 1800 }
+                ]
+            },
+            {
+                name: "kartik",
+                salary: 3,
+                age: 2,
+                country: "america",
+                department: "HR",
+                content_liked: ["sports", "politics", "online_gaming", "science"],
+                products_in_cart: [
+                    { Pname: "Football", cost: 1200 },
+                    { Pname: "Shoes", cost: 2500 }
+                ]
+            }
+        ];
+
+        // Combine all content_liked arrays into one single unique array
+        let content_type = [...new Set(employees.flatMap(emp => emp.content_liked))];
+
+        console.log("Single Content Type Array:", content_type);
+    </script>
+</body>
+</html>
