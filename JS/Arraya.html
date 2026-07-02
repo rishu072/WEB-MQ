@@ -7,6 +7,7 @@
 </head>
 <body>
     <script>
+        // let content_type = ["food","Trv_vlogs","Art","Daily_Vlogs"]
         let employees = [
             {
                 name: "bhupendr",
@@ -52,7 +53,47 @@
 
         console.log("Single Content Type Array:", content_type);
 
+
+        let obj = {
+            num : 56,
+            str : "rishu",
+            bool : true,
+            arr : [{},{}],
+            obj : {Tkey : "Value"},
+            func : function() {
+                console.log("Nothing.")
+            }
+        }
+        obj.num  = 88;
+        obj.name = "rishu";
         
+        console.log(Object.keys(obj));
+
+        // Calculating spending capacity of each employee using a forEach loop
+        employees.forEach(emp => {
+            let totalCost = 0;
+            // Iterate over products in cart to calculate total cost
+            emp.products_in_cart.forEach(product => {
+                totalCost += product.cost;
+            });
+
+            // Note: Employee salary is represented in thousands (e.g. 70k = 70,000)
+            let actualSalary = emp.salary * 1000;
+            let remainingCapacity = actualSalary - totalCost;
+
+            console.log(`Employee Name: ${emp.name}`);
+            console.log(`- Salary: $${actualSalary} (${emp.salary}k)`);
+            console.log(`- Total Product Cost: $${totalCost}`);
+            console.log(`- Remaining Spend Capacity: $${remainingCapacity}`);
+
+            // Conditional check: Spent capacity compared to salary
+            if (totalCost <= actualSalary / 2) {
+                console.log(`- Status: Within safe spending limit (cost is less than or equal to half the salary)`);
+            } else {
+                console.log(`- Status: Exceeds half of the salary limit`);
+            }
+            console.log("-----------------------------------------");
+        });
     </script>
 </body>
 </html>
