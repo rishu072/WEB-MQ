@@ -9,6 +9,9 @@
     <h1>java script </h1>
 
 <script>
+
+    // All employees of IT Department.
+    
     
 let departments = [
     { Dname: "IT", Dcode: 58 },
@@ -449,10 +452,51 @@ if (itDcode !== null) {
 } else {
     console.log("IT Department not found.");
 }
+// 1. Filter senior employees who have at least one junior assigned
+const seniorsWithJuniors = employees.filter(emp => emp.junior_assigned && emp.junior_assigned.length > 0);
+console.log("Senior employees with juniors assigned:", seniorsWithJuniors.map(emp => emp.name));
 
+// 2. Map senior employees to their assigned junior employees' names
+const seniorToJuniorNames = employees.map(emp => {
+    const juniors = emp.junior_assigned.map(juniorId => {
+        const found = junior_employees.find(je => je.employee_id === juniorId);
+        return found ? found.name : juniorId;
+    });
+    return {
+        seniorName: emp.name,
+        juniorNames: juniors
+    };
+});
+console.log("Senior to Junior names mapping:", seniorToJuniorNames);
 
+// Calculate salary of all senior and junior employees in all departments
+const departmentSalaries = departments.map(dept => {
+    // Filter and map seniors in this department
+    const seniorsInDept = employees
+        .filter(emp => emp.department === dept.Dcode)
+        .map(emp => ({ name: emp.name, salary: emp.salary }));
+    
+    // Filter and map juniors in this department
+    const juniorsInDept = junior_employees
+        .filter(emp => emp.department === dept.Dcode)
+        .map(emp => ({ name: emp.name, salary: emp.salary }));
+        
+    // Sum up salaries
+    const totalSeniorSalary = seniorsInDept.reduce((sum, emp) => sum + emp.salary, 0);
+    const totalJuniorSalary = juniorsInDept.reduce((sum, emp) => sum + emp.salary, 0);
+    
+    return {
+        department: dept.Dname,
+        departmentCode: dept.Dcode,
+        seniors: seniorsInDept,
+        totalSeniorSalary,
+        juniors: juniorsInDept,
+        totalJuniorSalary,
+        totalOverallSalary: totalSeniorSalary + totalJuniorSalary
+    };
+});
 
-
+console.log("Salary report by department:", departmentSalaries);
 </script>
 </body>
 </html>
