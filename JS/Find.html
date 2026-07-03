@@ -10,10 +10,8 @@
 
 <script>
 
-    // All employees of IT Department.
     
-    
-let departments = [
+    let departments = [
     { Dname: "IT", Dcode: 58 },
     { Dname: "Finance", Dcode: 158 },
     { Dname: "HR", Dcode: 48 },
@@ -220,7 +218,7 @@ let employees = [
     salary: 50000,
     age: 34,
     country: "jamaica",
-    department: 2,
+        department: 2,
     interests: [
         { leadership: ["leadership"] },
         { business: ["business"] },
@@ -427,76 +425,54 @@ let junior_employees = [
     products_in_cart:[{Pname:"Watch",cost:3000}]
 }
 ];
-// Find the department code for "IT" dynamically
-const itDepartment = departments.find(dept => dept.Dname === "IT");
-const itDcode = itDepartment ? itDepartment.Dcode : null;
+// Execute functions to display the requested results
+// printITEmployees();
+// printSeniorsAndJuniors();
+// printMostCostlyItJuniorItem();
+// printTotalSalariesByDepartment();
 
-if (itDcode !== null) {
-    // 1. Filter names from employees array (Senior)
-    const itEmployeesNames = employees
-        .filter(emp => emp.department === itDcode)
-        .map(emp => emp.name);
-    console.log("IT Employees (Senior):", itEmployeesNames);
+// All employees name of IT Department.
+    function printITEmployees() {
+        const itDept = departments.find(dept => dept.Dname === "IT");
+        if (itDept) {
+            const itEmployees = [...employees, ...junior_employees]
+                .filter(emp => emp.department === itDept.Dcode)
+                .map(emp => emp.name);
+            console.log("All IT Employees:", itEmployees);
+        }
+    }
 
-    // 2. Filter names from junior_employees array
-    const juniorItEmployeesNames = junior_employees
-        .filter(emp => emp.department === itDcode)
-        .map(emp => emp.name);
-    console.log("IT Employees (Junior):", juniorItEmployeesNames);
+    //print all the senoirs and thier respective junior names.
+    function printSeniorsAndJuniors() {
+        employees.forEach(senior => {
+            const juniorNames = senior.junior_assigned.map(juniorId => {
+                const junior = junior_employees.find(je => je.employee_id === juniorId);
+                return junior ? junior.name : juniorId;
+            });
+            console.log(`Senior: ${senior.name} -> Juniors: ${juniorNames.join(", ")}`);
+        });
+    }
 
-    // 3. Combined list of all IT employee names
-    const allItEmployeeNames = [...employees, ...junior_employees]
-        .filter(emp => emp.department === itDcode)
-        .map(emp => emp.name);
-    console.log("All IT Employees:", allItEmployeeNames);
-} else {
-    console.log("IT Department not found.");
-}
-// 1. Filter senior employees who have at least one junior assigned
-const seniorsWithJuniors = employees.filter(emp => emp.junior_assigned && emp.junior_assigned.length > 0);
-console.log("Senior employees with juniors assigned:", seniorsWithJuniors.map(emp => emp.name));
+    // print the most condtly iteam in the cart of it juniors.
+    function printMostCostlyItJuniorItem() {
+        const itDept = departments.find(dept => dept.Dname === "IT");
+        if (itDept) {
+            const itJuniors = junior_employees.filter(je => je.department === itDept.Dcode);
+            const allItems = itJuniors.flatMap(je => je.products_in_cart || []);
+            const mostCostly = allItems.reduce((max, item) => (item.cost > (max?.cost || 0)) ? item : max, null);
+            console.log("Most costly item in the cart of IT juniors:", mostCostly);
+        }
+    }
 
-// 2. Map senior employees to their assigned junior employees' names
-const seniorToJuniorNames = employees.map(emp => {
-    const juniors = emp.junior_assigned.map(juniorId => {
-        const found = junior_employees.find(je => je.employee_id === juniorId);
-        return found ? found.name : juniorId;
-    });
-    return {
-        seniorName: emp.name,
-        juniorNames: juniors
-    };
-});
-console.log("Senior to Junior names mapping:", seniorToJuniorNames);
+    //print the total salarys going to each department.
+    function printTotalSalariesByDepartment() {
+        departments.forEach(dept => {
+            const totalSenior = employees.filter(emp => emp.department === dept.Dcode).reduce((sum, emp) => sum + emp.salary, 0);
+            const totalJunior = junior_employees.filter(emp => emp.department === dept.Dcode).reduce((sum, emp) => sum + emp.salary, 0);
+            console.log(`Department ${dept.Dname}: Total Salary = ${totalSenior + totalJunior} (Senior: ${totalSenior}, Junior: ${totalJunior})`);
+        });
+    }
 
-// Calculate salary of all senior and junior employees in all departments
-const departmentSalaries = departments.map(dept => {
-    // Filter and map seniors in this department
-    const seniorsInDept = employees
-        .filter(emp => emp.department === dept.Dcode)
-        .map(emp => ({ name: emp.name, salary: emp.salary }));
-    
-    // Filter and map juniors in this department
-    const juniorsInDept = junior_employees
-        .filter(emp => emp.department === dept.Dcode)
-        .map(emp => ({ name: emp.name, salary: emp.salary }));
-        
-    // Sum up salaries
-    const totalSeniorSalary = seniorsInDept.reduce((sum, emp) => sum + emp.salary, 0);
-    const totalJuniorSalary = juniorsInDept.reduce((sum, emp) => sum + emp.salary, 0);
-    
-    return {
-        department: dept.Dname,
-        departmentCode: dept.Dcode,
-        seniors: seniorsInDept,
-        totalSeniorSalary,
-        juniors: juniorsInDept,
-        totalJuniorSalary,
-        totalOverallSalary: totalSeniorSalary + totalJuniorSalary
-    };
-});
-
-console.log("Salary report by department:", departmentSalaries);
 </script>
 </body>
 </html>
