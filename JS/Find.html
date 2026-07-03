@@ -425,11 +425,6 @@ let junior_employees = [
     products_in_cart:[{Pname:"Watch",cost:3000}]
 }
 ];
-// Execute functions to display the requested results
-// printITEmployees();
-// printSeniorsAndJuniors();
-// printMostCostlyItJuniorItem();
-// printTotalSalariesByDepartment();
 
 // All employees name of IT Department.
     function printITEmployees() {
@@ -473,6 +468,20 @@ let junior_employees = [
         });
     }
 
+    //Make it catagory arrays.
+    function printUniqueInterestCategories() {
+        const allCategories = [...employees, ...junior_employees].flatMap(emp => 
+            (emp.interests || []).flatMap(interestObj => Object.keys(interestObj))
+        );
+        const uniqueCategories = [...new Set(allCategories)];
+        console.log("All Unique Interest Categories:", uniqueCategories);
+    }
+
+    printITEmployees();
+    printSeniorsAndJuniors();
+    printMostCostlyItJuniorItem();
+    printTotalSalariesByDepartment();
+    printUniqueInterestCategories();
 </script>
 </body>
 </html>
