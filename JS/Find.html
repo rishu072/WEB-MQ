@@ -424,12 +424,31 @@ let junior_employees = [
     products_in_cart:[{Pname:"Watch",cost:3000}]
 }
 ];
+// Find the department code for "IT" dynamically
+const itDepartment = departments.find(dept => dept.Dname === "IT");
+const itDcode = itDepartment ? itDepartment.Dcode : null;
 
+if (itDcode !== null) {
+    // 1. Filter names from employees array (Senior)
+    const itEmployeesNames = employees
+        .filter(emp => emp.department === itDcode)
+        .map(emp => emp.name);
+    console.log("IT Employees (Senior):", itEmployeesNames);
 
+    // 2. Filter names from junior_employees array
+    const juniorItEmployeesNames = junior_employees
+        .filter(emp => emp.department === itDcode)
+        .map(emp => emp.name);
+    console.log("IT Employees (Junior):", juniorItEmployeesNames);
 
-
-
-
+    // 3. Combined list of all IT employee names
+    const allItEmployeeNames = [...employees, ...junior_employees]
+        .filter(emp => emp.department === itDcode)
+        .map(emp => emp.name);
+    console.log("All IT Employees:", allItEmployeeNames);
+} else {
+    console.log("IT Department not found.");
+}
 
 </script>
 </body>
