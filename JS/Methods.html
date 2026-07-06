@@ -405,7 +405,7 @@
 
 
     //Junier employees apne naam + apne senior ka naam ke legth ko Add krne ke baad jo length aaye ga utna hi wo salary wo daan kre ga 
-    //"JEMP216", "JEMP217", "JEMP218", "JEMP219 using this
+  
     const target_juniors = [
       { id: "JEMP216", name: "megha", salary: 2200 },
       { id: "JEMP217", name: "abhishek", salary: 3000 },
@@ -415,8 +415,7 @@
     const seniorName = "Pulkit";
 
     target_juniors.forEach(junior => {
-      const donationAmount = junior.name.length + seniorName.length;
-      console.log(`Junior: ${junior.name} (${junior.id}) -> Donation: ${donationAmount}, Remaining Salary: ${junior.salary - donationAmount}`);
+      console.log(junior.name.length + seniorName.length);
     });
   </script>
 </body>
