@@ -21,25 +21,13 @@
         console.log(classroom[1]);
         console.log(classroom[2]);
 
-        // Print first row in reverse
-        console.log("First Row Reversed:");
-        for (let j = classroom[0].length - 1; j >= 0; j--) {
-            console.log(classroom[0][j]);
-        }
-        console.log("Second Row Reversed:");
-        for (let j = classroom[0].length - 1; j >= 0; j--) {
-            console.log(classroom[1][j]);
-        }
-        console.log("Third Row Reversed:");
-        for (let j = classroom[0].length - 1; j >= 0; j--) {
-            console.log(classroom[2][j]);
-        }
+        // Print rows in reverse (in array form)
+        console.log("First Row Reversed:", [...classroom[0]].reverse());
+        console.log("Second Row Reversed:", [...classroom[1]].reverse());
+        console.log("Third Row Reversed:", [...classroom[2]].reverse());
 
-        // Print diagonal
-        console.log("Diagonal:");
-        for (let i = 0; i < classroom.length; i++) {
-            console.log(classroom[i][i]);
-        }
+        // Print diagonal (in array form)
+        console.log("Diagonal:", classroom.map((row, i) => row[i]));
     </script>
 </body>
 </html>
