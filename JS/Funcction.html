@@ -15,8 +15,25 @@
             ["Karan","Ajay","Ravi"]
         ];
 
-        // Print first row
-        console.log("First Row:", classroom[0]);
+        // Print first row elements
+        console.log("First Row:");
+        console.log(classroom[0][0]);
+        console.log(classroom[0][1]);
+        console.log(classroom[0][2]);
+
+        // Print first row in reverse
+        console.log("First Row Reversed:");
+        for (let j = classroom[0].length - 1; j >= 0; j--) {
+            console.log(classroom[0][j]);
+        }
+        console.log("Second Row Reversed:");
+        for (let j = classroom[0].length - 1; j >= 0; j--) {
+            console.log(classroom[1][j]);
+        }
+        console.log("Third Row Reversed:");
+        for (let j = classroom[0].length - 1; j >= 0; j--) {
+            console.log(classroom[2][j]);
+        }
 
         // Print diagonal
         console.log("Diagonal:");
