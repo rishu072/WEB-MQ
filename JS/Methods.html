@@ -394,10 +394,12 @@ let departments = [
 
 
 //IT Department employyes name print only.
-
-
-
-
+const itDept = departments.find(dept => dept.Dname === "IT");
+const itEmployees = nested_employees
+    .flat()
+    .filter(emp => emp.department === itDept.Dcode)
+    .map(emp => emp.name);
+console.log("IT Department Employees:", itEmployees);
 </script>
 </body>
 </html>
