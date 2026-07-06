@@ -401,23 +401,39 @@
       .flat()
       .filter(emp => emp.department === itDept.Dcode)
       .map(emp => emp.name);
-    console.log("IT Department Employees:", itEmployees);
+    console.log("IT Department Employees:", itEmployees); 
 
 
     //Junier employees apne naam + apne senior ka naam ke legth ko Add krne ke baad jo length aaye ga utna hi wo salary wo daan kre ga 
   
-    const target_juniors = [
-      { id: "JEMP216", name: "megha", salary: 2200 },
-      { id: "JEMP217", name: "abhishek", salary: 3000 },
-      { id: "JEMP218", name: "kiran", salary: 3200 },
-      { id: "JEMP219", name: "sonia", salary: 3100 }
-    ];
-    const seniorName = "Pulkit";
+    // const target_juniors = [
+    //   { id: "JEMP216", name: "megha", salary: 2200 },
+    //   { id: "JEMP217", name: "abhishek", salary: 3000 },
+    //   { id: "JEMP218", name: "kiran", salary: 3200 },
+    //   { id: "JEMP219", name: "sonia", salary: 3100 }
+    // ];
+    // const seniorName = "Pulkit";
 
-    target_juniors.forEach(junior => {
-      const donationAmount = junior.name.length + seniorName.length;
-      console.log(`Junior: ${junior.name} (${junior.id}) -> Donation: ${donationAmount}%, Remaining Salary: ${junior.salary - donationAmount}`);
-    });
+    // target_juniors.forEach(junior => {
+    //   const donationAmount = junior.name.length + seniorName.length;
+    //   console.log(`Junior: ${junior.name} (${junior.id}) -> Donation: ${donationAmount}%, Remaining Salary: ${junior.salary - donationAmount}`);
+    // });
+
+    // nested_employees.forEach((inner.Array)=>){
+    //   employee.junior_assigned.forEach((junior_id)=>{
+    //     let junior = junior_employees.find(jnr.employee_id == junior_id)
+    //     if(junior){
+    //       let concatinateName = junior.name + employee.name
+    //       console.log(Concatinated name : ${concatinateName}, percent :)
+    //     }
+    //   })
+   // }
+
+   let [laal,hara,neela] = colors;
+
+   console.log(hara);
+   console.log(neela);
+   console.log(laal);
   </script>
 </body>
 
