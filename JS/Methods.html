@@ -1,405 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <h1> Methods.</h1>
-    <script>
+  <h1> Methods.</h1>
+  <script>
     const nested_employees = [
 
-  [
+      [
 
-    {
+        {
 
-      employee_id: "EMP101",
+          employee_id: "EMP101",
 
-      name: "Rahul",
+          name: "Rahul",
 
-      salary: 55000,
+          salary: 55000,
 
-      age: 27,
+          age: 27,
 
-      country: "India",
+          country: "India",
 
-      department: 58,
+          department: 58,
 
-      interests: [
+          interests: [
 
-        { technology: ["javascript", "nodejs"] },
+            { technology: ["javascript", "nodejs"] },
 
-        { sports: ["cricket"] },
+            { sports: ["cricket"] },
 
-        { music: ["guitar"] },
+            { music: ["guitar"] },
 
-        { self_growth: ["productivity"] }
+            { self_growth: ["productivity"] }
+
+          ],
+
+          junior_assigned: ["JEMP201", "JEMP202", "JEMP203"],
+
+          products_in_cart: [
+
+            { Pname: "Laptop", cost: 70000 },
+
+            { Pname: "Keyboard", cost: 2500 },
+
+            { Pname: "Headphones", cost: 4500 }
+
+          ]
+
+        },
+
+        {
+
+          employee_id: "EMP102",
+
+          name: "Aman",
+
+          salary: 48000,
+
+          age: 25,
+
+          country: "India",
+
+          department: 158,
+
+          interests: [
+
+            { business: ["marketing"] },
+
+            { fitness: ["gym"] },
+
+            { technology: ["react"] },
+
+            { travel: ["mountains"] }
+
+          ],
+
+          junior_assigned: ["JEMP204", "JEMP205"],
+
+          products_in_cart: [
+
+            { Pname: "Phone", cost: 35000 },
+
+            { Pname: "Shoes", cost: 5000 },
+
+            { Pname: "Backpack", cost: 2000 }
+
+          ]
+
+        },
+
+        {
+
+          employee_id: "EMP103",
+
+          name: "Mohit",
+
+          salary: 62000,
+
+          age: 30,
+
+          country: "Canada",
+
+          department: 2,
+
+          interests: [
+
+            { technology: ["python", "django"] },
+
+            { gaming: ["fps"] },
+
+            { reading: ["fiction"] },
+
+            { finance: ["investing"] }
+
+          ],
+
+          junior_assigned: ["JEMP206"],
+
+          products_in_cart: [
+
+            { Pname: "Monitor", cost: 18000 },
+
+            { Pname: "Mouse", cost: 2500 },
+
+            { Pname: "SSD", cost: 7000 }
+
+          ]
+
+        }
 
       ],
 
-      junior_assigned: ["JEMP201", "JEMP202", "JEMP203"],
+      [
 
-      products_in_cart: [
+        {
 
-        { Pname: "Laptop", cost: 70000 },
+          employee_id: "EMP104",
 
-        { Pname: "Keyboard", cost: 2500 },
+          name: "Neha",
 
-        { Pname: "Headphones", cost: 4500 }
+          salary: 58000,
 
-      ]
+          age: 28,
 
-    },
+          country: "India",
 
-    {
+          department: 48,
 
-      employee_id: "EMP102",
+          interests: [
 
-      name: "Aman",
+            { leadership: ["team_management"] },
 
-      salary: 48000,
+            { cooking: ["baking"] },
 
-      age: 25,
+            { technology: ["ui_design"] },
 
-      country: "India",
+            { self_growth: ["public_speaking"] }
 
-      department: 158,
+          ],
 
-      interests: [
+          junior_assigned: ["JEMP207", "JEMP208"],
 
-        { business: ["marketing"] },
+          products_in_cart: [
 
-        { fitness: ["gym"] },
+            { Pname: "iPad", cost: 55000 },
 
-        { technology: ["react"] },
+            { Pname: "Stylus", cost: 9000 },
 
-        { travel: ["mountains"] }
+            { Pname: "Bag", cost: 2500 }
+
+          ]
+
+        },
+
+        {
+
+          employee_id: "EMP105",
+
+          name: "Riya",
+
+          salary: 52000,
+
+          age: 26,
+
+          country: "Australia",
+
+          department: 44,
+
+          interests: [
+
+            { photography: ["nature"] },
+
+            { technology: ["figma"] },
+
+            { fashion: ["design"] },
+
+            { travel: ["beaches"] }
+
+          ],
+
+          junior_assigned: ["JEMP209", "JEMP210"],
+
+          products_in_cart: [
+
+            { Pname: "Camera", cost: 85000 },
+
+            { Pname: "Tripod", cost: 4000 },
+
+            { Pname: "Memory Card", cost: 2500 }
+
+          ]
+
+        },
+
+        {
+
+          employee_id: "EMP106",
+
+          name: "Pooja",
+
+          salary: 47000,
+
+          age: 24,
+
+          country: "India",
+
+          department: 158,
+
+          interests: [
+
+            { art: ["painting"] },
+
+            { technology: ["css", "html"] },
+
+            { music: ["singing"] },
+
+            { business: ["sales"] }
+
+          ],
+
+          junior_assigned: ["JEMP211"],
+
+          products_in_cart: [
+
+            { Pname: "Tablet", cost: 30000 },
+
+            { Pname: "Earbuds", cost: 3500 },
+
+            { Pname: "Notebook", cost: 500 }
+
+          ]
+
+        }
 
       ],
 
-      junior_assigned: ["JEMP204", "JEMP205"],
+      [
 
-      products_in_cart: [
+        {
 
-        { Pname: "Phone", cost: 35000 },
+          employee_id: "EMP107",
 
-        { Pname: "Shoes", cost: 5000 },
+          name: "Karan",
 
-        { Pname: "Backpack", cost: 2000 }
+          salary: 68000,
+
+          age: 31,
+
+          country: "Germany",
+
+          department: 2,
+
+          interests: [
+
+            { technology: ["aws", "docker"] },
+
+            { finance: ["stocks"] },
+
+            { leadership: ["mentoring"] },
+
+            { fitness: ["cycling"] }
+
+          ],
+
+          junior_assigned: ["JEMP212", "JEMP213"],
+
+          products_in_cart: [
+
+            { Pname: "MacBook", cost: 145000 },
+
+            { Pname: "Magic Mouse", cost: 7000 },
+
+            { Pname: "USB Hub", cost: 2500 }
+
+          ]
+
+        },
+
+        {
+
+          employee_id: "EMP108",
+
+          name: "Ajay",
+
+          salary: 51000,
+
+          age: 29,
+
+          country: "India",
+
+          department: 58,
+
+          interests: [
+
+            { sports: ["football"] },
+
+            { technology: ["mongodb"] },
+
+            { reading: ["history"] },
+
+            { movies: ["action"] }
+
+          ],
+
+          junior_assigned: ["JEMP214", "JEMP215"],
+
+          products_in_cart: [
+
+            { Pname: "Smart Watch", cost: 15000 },
+
+            { Pname: "Shoes", cost: 4500 },
+
+            { Pname: "Jacket", cost: 3500 }
+
+          ]
+
+        },
+
+        {
+
+          employee_id: "EMP109",
+
+          name: "Pulkit",
+
+          salary: 75000,
+
+          age: 25,
+
+          country: "India",
+
+          department: 58,
+
+          interests: [
+
+            { technology: ["mern", "nodejs", "react"] },
+
+            { self_growth: ["motivational", "books"] },
+
+            { music: ["instruments"] },
+
+            { travel: ["road_trips"] }
+
+          ],
+
+          junior_assigned: ["JEMP216", "JEMP217", "JEMP218", "JEMP219"],
+
+          products_in_cart: [
+
+            { Pname: "Gaming Laptop", cost: 95000 },
+
+            { Pname: "Mechanical Keyboard", cost: 6500 },
+
+            { Pname: "Monitor", cost: 22000 }
+
+          ]
+
+        }
 
       ]
 
-    },
-
-    {
-
-      employee_id: "EMP103",
-
-      name: "Mohit",
-
-      salary: 62000,
-
-      age: 30,
-
-      country: "Canada",
-
-      department: 2,
-
-      interests: [
-
-        { technology: ["python", "django"] },
-
-        { gaming: ["fps"] },
-
-        { reading: ["fiction"] },
-
-        { finance: ["investing"] }
-
-      ],
-
-      junior_assigned: ["JEMP206"],
-
-      products_in_cart: [
-
-        { Pname: "Monitor", cost: 18000 },
-
-        { Pname: "Mouse", cost: 2500 },
-
-        { Pname: "SSD", cost: 7000 }
-
-      ]
-
-    }
-
-  ],
-
-  [
-
-    {
-
-      employee_id: "EMP104",
-
-      name: "Neha",
-
-      salary: 58000,
-
-      age: 28,
-
-      country: "India",
-
-      department: 48,
-
-      interests: [
-
-        { leadership: ["team_management"] },
-
-        { cooking: ["baking"] },
-
-        { technology: ["ui_design"] },
-
-        { self_growth: ["public_speaking"] }
-
-      ],
-
-      junior_assigned: ["JEMP207", "JEMP208"],
-
-      products_in_cart: [
-
-        { Pname: "iPad", cost: 55000 },
-
-        { Pname: "Stylus", cost: 9000 },
-
-        { Pname: "Bag", cost: 2500 }
-
-      ]
-
-    },
-
-    {
-
-      employee_id: "EMP105",
-
-      name: "Riya",
-
-      salary: 52000,
-
-      age: 26,
-
-      country: "Australia",
-
-      department: 44,
-
-      interests: [
-
-        { photography: ["nature"] },
-
-        { technology: ["figma"] },
-
-        { fashion: ["design"] },
-
-        { travel: ["beaches"] }
-
-      ],
-
-      junior_assigned: ["JEMP209", "JEMP210"],
-
-      products_in_cart: [
-
-        { Pname: "Camera", cost: 85000 },
-
-        { Pname: "Tripod", cost: 4000 },
-
-        { Pname: "Memory Card", cost: 2500 }
-
-      ]
-
-    },
-
-    {
-
-      employee_id: "EMP106",
-
-      name: "Pooja",
-
-      salary: 47000,
-
-      age: 24,
-
-      country: "India",
-
-      department: 158,
-
-      interests: [
-
-        { art: ["painting"] },
-
-        { technology: ["css", "html"] },
-
-        { music: ["singing"] },
-
-        { business: ["sales"] }
-
-      ],
-
-      junior_assigned: ["JEMP211"],
-
-      products_in_cart: [
-
-        { Pname: "Tablet", cost: 30000 },
-
-        { Pname: "Earbuds", cost: 3500 },
-
-        { Pname: "Notebook", cost: 500 }
-
-      ]
-
-    }
-
-  ],
-
-  [
-
-    {
-
-      employee_id: "EMP107",
-
-      name: "Karan",
-
-      salary: 68000,
-
-      age: 31,
-
-      country: "Germany",
-
-      department: 2,
-
-      interests: [
-
-        { technology: ["aws", "docker"] },
-
-        { finance: ["stocks"] },
-
-        { leadership: ["mentoring"] },
-
-        { fitness: ["cycling"] }
-
-      ],
-
-      junior_assigned: ["JEMP212", "JEMP213"],
-
-      products_in_cart: [
-
-        { Pname: "MacBook", cost: 145000 },
-
-        { Pname: "Magic Mouse", cost: 7000 },
-
-        { Pname: "USB Hub", cost: 2500 }
-
-      ]
-
-    },
-
-    {
-
-      employee_id: "EMP108",
-
-      name: "Ajay",
-
-      salary: 51000,
-
-      age: 29,
-
-      country: "India",
-
-      department: 58,
-
-      interests: [
-
-        { sports: ["football"] },
-
-        { technology: ["mongodb"] },
-
-        { reading: ["history"] },
-
-        { movies: ["action"] }
-
-      ],
-
-      junior_assigned: ["JEMP214", "JEMP215"],
-
-      products_in_cart: [
-
-        { Pname: "Smart Watch", cost: 15000 },
-
-        { Pname: "Shoes", cost: 4500 },
-
-        { Pname: "Jacket", cost: 3500 }
-
-      ]
-
-    },
-
-    {
-
-      employee_id: "EMP109",
-
-      name: "Pulkit",
-
-      salary: 75000,
-
-      age: 25,
-
-      country: "India",
-
-      department: 58,
-
-      interests: [
-
-        { technology: ["mern", "nodejs", "react"] },
-
-        { self_growth: ["motivational", "books"] },
-
-        { music: ["instruments"] },
-
-        { travel: ["road_trips"] }
-
-      ],
-
-      junior_assigned: ["JEMP216", "JEMP217", "JEMP218", "JEMP219"],
-
-      products_in_cart: [
-
-        { Pname: "Gaming Laptop", cost: 95000 },
-
-        { Pname: "Mechanical Keyboard", cost: 6500 },
-
-        { Pname: "Monitor", cost: 22000 }
-
-      ]
-
-    }
-
-  ]
-
-];
-
-let departments = [
-    { Dname: "IT", Dcode: 58 },
-    { Dname: "Finance", Dcode: 158 },
-    { Dname: "HR", Dcode: 48 },
-    { Dname: "Marketing", Dcode: 44 },
-    { Dname: "CEO", Dcode: 2 }
-];
-
-
-//IT Department employyes name print only.
-const itDept = departments.find(dept => dept.Dname === "IT");
-const itEmployees = nested_employees
-    .flat()
-    .filter(emp => emp.department === itDept.Dcode)
-    .map(emp => emp.name);
-console.log("IT Department Employees:", itEmployees);
-</script>
+    ];
+
+    let departments = [
+      { Dname: "IT", Dcode: 58 },
+      { Dname: "Finance", Dcode: 158 },
+      { Dname: "HR", Dcode: 48 },
+      { Dname: "Marketing", Dcode: 44 },
+      { Dname: "CEO", Dcode: 2 }
+    ];
+
+
+    //IT Department employees name print only.
+    const itDept = departments.find(dept => dept.Dname === "IT");
+    const itEmployees = nested_employees
+      .flat()
+      .filter(emp => emp.department === itDept.Dcode)
+      .map(emp => emp.name);
+    console.log("IT Department Employees:", itEmployees);
+
+
+    //Junier employees apne naam + apne senior ka naam ke legth ko Add krne ke baad jo length aaye ga utna hi wo salary wo daan kre ga 
+    //"JEMP216", "JEMP217", "JEMP218", "JEMP219 using this
+    const target_juniors = [
+      { id: "JEMP216", name: "megha", salary: 2200 },
+      { id: "JEMP217", name: "abhishek", salary: 3000 },
+      { id: "JEMP218", name: "kiran", salary: 3200 },
+      { id: "JEMP219", name: "sonia", salary: 3100 }
+    ];
+    const seniorName = "Pulkit";
+
+    target_juniors.forEach(junior => {
+      const donationAmount = junior.name.length + seniorName.length;
+      console.log(`Junior: ${junior.name} (${junior.id}) -> Donation: ${donationAmount}, Remaining Salary: ${junior.salary - donationAmount}`);
+    });
+  </script>
 </body>
+
 </html>
