@@ -415,7 +415,8 @@
     const seniorName = "Pulkit";
 
     target_juniors.forEach(junior => {
-      console.log(junior.name.length + seniorName.length);
+      const donationAmount = junior.name.length + seniorName.length;
+      console.log(`Junior: ${junior.name} (${junior.id}) -> Donation: ${donationAmount}%, Remaining Salary: ${junior.salary - donationAmount}`);
     });
   </script>
 </body>
