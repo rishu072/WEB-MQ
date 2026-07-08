@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Imp Methods</h1>
+
+    <script>
+        let person = {
+            company : "google",
+            pakage : 56,
+            designtion : "SDE-1"
+        }
+        let Emp = {
+            name : "rishu",
+            age : 60,
+            num : "8576988xxx",
+            mail : "temp@gmail.com"
+        }
+        let add = {
+            city : "Kasi",
+            pincode : 221011,
+            dis : "Varanasi"
+        }
+
+        // Set up the prototype chain: person -> Emp -> add
+        Emp.__proto__ = add;
+        person.__proto__ = Emp;
+
+        console.log(person, person.city);
+        console.log(person.company);
+
+        let name = {
+
+        }
+    </script>
+</body>
+</html>
