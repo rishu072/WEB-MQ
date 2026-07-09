@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Car {
+            constructor(company, model_year, tyres, features) {
+                this.company = company;
+                this.model_year = model_year;
+                this.tyres = tyres;
+                this.features = features;
+            }
+        }
+
+        let carobj = new Car(
+            "BMW",
+            2019,
+            {
+                tyre1 : 23,
+                tyre2 : 45,
+                tyre3 : 25,
+                tyre4 : 55,
+            },
+            ["Pabaromic sunroof", "autoloack", "aAdas"]
+        );
+    </script>
+</body>
+</html>
