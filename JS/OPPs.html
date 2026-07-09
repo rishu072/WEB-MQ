@@ -29,15 +29,24 @@
         );
 
 
-        let Employee = {
-            name : "rishu",
-            salary : 50000,
-            skils : ["python","SQL","AIML"],
-            cart : {
+        class Employee {
+            constructor(name, salary, skills, cart) {
+                this.name = name;
+                this.salary = salary;
+                this.skills = skills;
+                this.cart = cart;
+            }
+        }
+
+        let employeeObj = new Employee(
+            "rishu",
+            50000,
+            ["python", "SQL", "AIML"],
+            {
                 fan : 500,
                 watch : 1000
             }
-        }
+        );
     </script>
 </body>
 </html>
