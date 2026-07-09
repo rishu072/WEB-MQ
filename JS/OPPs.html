@@ -7,46 +7,73 @@
 </head>
 <body>
     <script>
-        class Car {
-            constructor(company, model_year, tyres, features) {
-                this.company = company;
-                this.model_year = model_year;
-                this.tyres = tyres;
-                this.features = features;
+        // class Car {
+        //     constructor(company, model_year, tyres, features) {
+        //         this.company = company;
+        //         this.model_year = model_year;
+        //         this.tyres = tyres;
+        //         this.features = features;
+        //     }
+        // }
+
+        // let carobj = new Car(
+        //     "BMW",
+        //     2019,
+        //     {
+        //         tyre1 : 23,
+        //         tyre2 : 45,
+        //         tyre3 : 25,
+        //         tyre4 : 55,
+        //     },
+        //     ["Pabaromic sunroof", "autoloack", "aAdas"]
+        // );
+
+
+        // class Employee {
+        //     constructor(name, salary, skills, cart) {
+        //         this.name = name;
+        //         this.salary = salary;
+        //         this.skills = skills;
+        //         this.cart = cart;
+        //     }
+        // }
+
+        // let employeeObj = new Employee(
+        //     "rishu",
+        //     50000,
+        //     ["python", "SQL", "AIML"],
+        //     {
+        //         fan : 500,
+        //         watch : 1000
+        //     }
+        // );
+
+       class ATM {
+            constructor(cardHolder, balance, pin) {
+                this.cardHolder = cardHolder;
+                this.balance = balance;
+                this.pin = pin;
+            }
+
+            checkBalance() {
+                console.log(`Balance: $${this.balance}`);
+            }
+
+            deposit(amount) {
+                this.balance += amount;
+                console.log(`Deposited: $${amount}. New balance: $${this.balance}`);
+            }
+
+            withdraw(amount) {
+                this.balance -= amount;
+                console.log(`Withdrew: $${amount}. Remaining: $${this.balance}`);
             }
         }
 
-        let carobj = new Car(
-            "BMW",
-            2019,
-            {
-                tyre1 : 23,
-                tyre2 : 45,
-                tyre3 : 25,
-                tyre4 : 55,
-            },
-            ["Pabaromic sunroof", "autoloack", "aAdas"]
-        );
-
-
-        class Employee {
-            constructor(name, salary, skills, cart) {
-                this.name = name;
-                this.salary = salary;
-                this.skills = skills;
-                this.cart = cart;
-            }
-        }
-
-        let employeeObj = new Employee(
-            "rishu",
-            50000,
-            ["python", "SQL", "AIML"],
-            {
-                fan : 500,
-                watch : 1000
-            }
-        );
+        let myATM = new ATM("rishu", 1000, 1234);
+        myATM.checkBalance();
+        myATM.deposit(500);
+        myATM.withdraw(200);
     </script>
 </body>
 </html>
