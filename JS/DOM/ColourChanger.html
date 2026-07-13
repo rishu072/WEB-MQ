@@ -42,13 +42,12 @@
             });
         }
 
-        // --- Automatic Color Changing Logic ---
         let intervalId = null;
         const colors = ["red", "blue", "green", "purple", "orange", "deeppink"];
         let colorIndex = 0;
 
         function startAuto() {
-            // If it is already running, don't start another one
+    
             if (intervalId !== null) return;
 
             intervalId = setInterval(function() {
@@ -59,14 +58,13 @@
                     heading.style.color = nextColor;
                 });
 
-                // Move to next color index (loops back to 0 when it reaches the end)
                 colorIndex = (colorIndex + 1) % colors.length;
             }, 1000); // 1000ms = 1 second
         }
 
         function stopAuto() {
             clearInterval(intervalId);
-            intervalId = null; // Reset the interval ID so it can be started again
+            intervalId = null; 
         }
     </script>
 
