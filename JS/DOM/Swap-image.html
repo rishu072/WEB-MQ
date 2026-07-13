@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Slider</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f2f2f2;
+}
+
+img{
+    width:800px;
+    height:450px;
+    object-fit:cover;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+</style>
+</head>
+
+<body>
+
+<img id="image" src="paypal.png" alt="Image">
+
+<script>
+
+let img = document.getElementById("image");
+
+let images = [
+    "paypal.png",
+    "flipkart.png"
+];
+
+let i = 0;
+
+setInterval(function(){
+
+    i++;
+
+    if(i == images.length){
+        i = 0;
+    }
+
+    img.src = images[i];
+
+},400);
+
+</script>
+
+</body>
+</html>
