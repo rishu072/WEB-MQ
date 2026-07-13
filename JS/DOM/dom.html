@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>rishu</h1>
+    <script>
+        let str = "rishu";
+
+        let revBuiltIn = str.split("").reverse().join("");
+        console.log("Built-in reverse:", revBuiltIn);
+
+        function customReverse(input) {
+            let arr = typeof input === "string" ? input.split("") : [...input];
+            let left = 0;
+            let right = arr.length - 1;
+
+            while (left < right) {
+                let temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+                left++;
+                right--;
+            }
+            return typeof input === "string" ? arr.join("") : arr;
+        }
+
+        console.log("Custom reverse (string):", customReverse(str));
+        console.log("Custom reverse (array):", customReverse([1, 2, 3, 4, 5]));
+    </script>
+</body>
+</html>
