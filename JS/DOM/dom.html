@@ -30,6 +30,31 @@
 
         console.log("Custom reverse (string):", customReverse(str));
         console.log("Custom reverse (array):", customReverse([1, 2, 3, 4, 5]));
+
+        function isPalindromeSimple(str) {
+            let reversed = str.split("").reverse().join("");
+            return str === reversed;
+        }
+
+        function isPalindromeLoop(str) {
+            let left = 0;
+            let right = str.length - 1;
+
+            while (left < right) {
+                if (str[left] !== str[right]) {
+                    return false;
+                }
+                left++;
+                right--;
+            }
+            return true;
+        }
+
+        console.log("--- Palindrome Tests ---");
+        console.log("isPalindromeSimple('racecar'):", isPalindromeSimple("racecar"));
+        console.log("isPalindromeSimple('hello'):", isPalindromeSimple("hello"));     
+        console.log("isPalindromeLoop('madam'):", isPalindromeLoop("madam"));         
+        console.log("isPalindromeLoop('Rishu'):", isPalindromeLoop("Rishu"));         
     </script>
 </body>
 </html>
