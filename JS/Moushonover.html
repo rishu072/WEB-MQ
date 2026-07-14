@@ -29,14 +29,12 @@
         const cellSize = 80;
         let cols, rows;
 
-        // Static palette of 3 simple colors
         const colors = [
             { color: "#8b5cf6", glow: "rgba(139, 92, 246, 0.8)" },
             { color: "#06b6d4", glow: "rgba(6, 182, 212, 0.8)" },
             { color: "#ec4899", glow: "rgba(236, 72, 153, 0.8)" }
         ];
 
-        // Initialize and draw the grid cells
         const initGrid = () => {
             grid.innerHTML = "";
             cols = Math.ceil(window.innerWidth / cellSize);
@@ -48,18 +46,14 @@
             for (let i = 0; i < cols * rows; i++) {
                 const cell = document.createElement("div");
                 cell.className = "cell";
-                
-                // Pre-assign static color pattern to each box (no color shifting animation)
                 const selection = colors[i % colors.length];
                 cell.style.setProperty('--cell-color', selection.color);
                 cell.style.setProperty('--cell-glow', selection.glow);
-                
                 fragment.appendChild(cell);
             }
             grid.appendChild(fragment);
         };
 
-        // Activate grid cell and trigger decay timeout
         const triggerCell = (cell) => {
             if (cell.timer) clearTimeout(cell.timer);
             cell.classList.add("active");
@@ -69,7 +63,6 @@
             }, 500);
         };
 
-        // Event listener for mouse interaction
         const handleInteract = (e) => {
             if (e.target.classList.contains("cell")) triggerCell(e.target);
         };
@@ -77,7 +70,6 @@
         grid.addEventListener("mouseover", handleInteract);
         grid.addEventListener("mousemove", handleInteract);
 
-        // Touch support for mobile devices
         const handleTouch = (e) => {
             if (e.touches.length === 0) return;
             const touch = e.touches[0];
@@ -88,7 +80,6 @@
         grid.addEventListener("touchmove", handleTouch, { passive: true });
         grid.addEventListener("touchstart", handleTouch, { passive: true });
 
-        // Debounced grid rebuild on window resize
         let resizeTimeout;
         window.addEventListener("resize", () => {
             clearTimeout(resizeTimeout);
