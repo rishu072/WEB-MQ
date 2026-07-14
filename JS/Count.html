@@ -5,72 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Counter</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f7f6; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
         .counter-container {
             text-align: center;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            margin-top: 100px;
+            font-family: Arial, sans-serif;
         }
 
         .count-box {
             width: 120px;
             height: 120px;
-            background-color: #e0ffff; 
-            border: 3px solid #00e5ff; 
-            border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: aqua;
+            border: 2px solid #00cccc;
+            line-height: 120px;
             font-size: 3rem;
             font-weight: bold;
-            color: #007788; /* Aqua/teal text color */
             margin: 0 auto 20px auto;
         }
 
-        /* Simple button */
-        .btn-increment {
-            background-color: #00e5ff; /* Aqua blue background */
-            color: #333333;
-            border: none;
-            border-radius: 5px;
-            padding: 12px 24px;
+        .btn {
+            background-color: #e0f7fa;
+            border: 1px solid #b2ebf2;
+            padding: 10px 20px;
             font-size: 1rem;
-            font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .btn-increment:hover {
-            background-color: #00c4da;
+            margin: 5px;
         }
     </style>
 </head>
 <body>
 
     <div class="counter-container">
-        
         <div id="count-box" class="count-box">0</div>
 
-        <button type="button" onclick="increaseCount()" class="btn-increment">Increase Count</button>
+        <button type="button" onclick="addCount()" class="btn">Add</button>
+        <button type="button" onclick="subtractCount()" class="btn">Subtract</button>
+        <button type="button" onclick="multiplyCount()" class="btn">Multiply</button>
+        <button type="button" onclick="divideCount()" class="btn">Divide</button>
     </div>
 
     <script>
         let count = 0;
 
-        function increaseCount() {
-            count = count + 1;
+        function updateDisplay() {
             document.getElementById('count-box').innerText = count;
+        }
+
+        function addCount() {
+            count = count + 5;
+            updateDisplay();
+        }
+
+        function subtractCount() {
+            count = count - 5;
+            updateDisplay();
+        }
+
+        function multiplyCount() {
+            count = count * 10;
+            updateDisplay();
+        }
+
+        function divideCount() {
+            count = count / 5;
+            if (count % 1 !== 0) {
+                count = parseFloat(count.toFixed(2));
+            }
+            updateDisplay();
         }
     </script>
 
