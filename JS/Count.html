@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .counter-container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .count-box {
+            width: 120px;
+            height: 120px;
+            background-color: #e0ffff; 
+            border: 3px solid #00e5ff; 
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #007788; /* Aqua/teal text color */
+            margin: 0 auto 20px auto;
+        }
+
+        /* Simple button */
+        .btn-increment {
+            background-color: #00e5ff; /* Aqua blue background */
+            color: #333333;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-increment:hover {
+            background-color: #00c4da;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="counter-container">
+        
+        <div id="count-box" class="count-box">0</div>
+
+        <button type="button" onclick="increaseCount()" class="btn-increment">Increase Count</button>
+    </div>
+
+    <script>
+        let count = 0;
+
+        function increaseCount() {
+            count = count + 1;
+            document.getElementById('count-box').innerText = count;
+        }
+    </script>
+
+</body>
+</html>
