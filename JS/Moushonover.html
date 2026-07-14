@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Trail Effect</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a0a0a; overflow: hidden; }
+        #grid {
+            position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
+            display: grid; border-top: 1px solid rgba(255,255,255,0.03); border-left: 1px solid rgba(255,255,255,0.03);
+        }
+        .cell {
+            border-right: 1px solid rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.03);
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+        .cell.active {
+            background: var(--cell-color);
+            box-shadow: 0 0 15px var(--cell-glow), 0 0 30px var(--cell-glow);
+            transition: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="grid"></div>
+    <script>
+        const grid = document.getElementById("grid");
+        const cellSize = 80;
+        let cols, rows;
+
+        // Static palette of 3 simple colors
+        const colors = [
+            { color: "#8b5cf6", glow: "rgba(139, 92, 246, 0.8)" },
+            { color: "#06b6d4", glow: "rgba(6, 182, 212, 0.8)" },
+            { color: "#ec4899", glow: "rgba(236, 72, 153, 0.8)" }
+        ];
+
+        // Initialize and draw the grid cells
+        const initGrid = () => {
+            grid.innerHTML = "";
+            cols = Math.ceil(window.innerWidth / cellSize);
+            rows = Math.ceil(window.innerHeight / cellSize);
+            grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+            grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+            
+            const fragment = document.createDocumentFragment();
+            for (let i = 0; i < cols * rows; i++) {
+                const cell = document.createElement("div");
+                cell.className = "cell";
+                
+                // Pre-assign static color pattern to each box (no color shifting animation)
+                const selection = colors[i % colors.length];
+                cell.style.setProperty('--cell-color', selection.color);
+                cell.style.setProperty('--cell-glow', selection.glow);
+                
+                fragment.appendChild(cell);
+            }
+            grid.appendChild(fragment);
+        };
+
+        // Activate grid cell and trigger decay timeout
+        const triggerCell = (cell) => {
+            if (cell.timer) clearTimeout(cell.timer);
+            cell.classList.add("active");
+            cell.timer = setTimeout(() => {
+                cell.classList.remove("active");
+                cell.timer = null;
+            }, 500);
+        };
+
+        // Event listener for mouse interaction
+        const handleInteract = (e) => {
+            if (e.target.classList.contains("cell")) triggerCell(e.target);
+        };
+
+        grid.addEventListener("mouseover", handleInteract);
+        grid.addEventListener("mousemove", handleInteract);
+
+        // Touch support for mobile devices
+        const handleTouch = (e) => {
+            if (e.touches.length === 0) return;
+            const touch = e.touches[0];
+            const target = document.elementFromPoint(touch.clientX, touch.clientY);
+            if (target && target.classList.contains("cell")) triggerCell(target);
+        };
+
+        grid.addEventListener("touchmove", handleTouch, { passive: true });
+        grid.addEventListener("touchstart", handleTouch, { passive: true });
+
+        // Debounced grid rebuild on window resize
+        let resizeTimeout;
+        window.addEventListener("resize", () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(initGrid, 150);
+        });
+
+        initGrid();
+    </script>
+</body>
+</html>
