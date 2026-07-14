@@ -12,58 +12,18 @@
     <h1 class="my-heading">RISHU</h1>
     <h1 class="my-heading">RISHU</h1>
 
-    <button type="button" onclick="changeToRed()">Red</button>
-    <button type="button" onclick="changeToBlue()">Blue</button>
-    <button type="button" onclick="changeToGreen()">Green</button>
-    <br><br>
-    <button type="button" onclick="startAuto()">Start Auto Change</button>
-    <button type="button" onclick="stopAuto()">Stop Auto Change</button>
+    <button type="button" onclick="changeColor()">click me!</button>
 
     <script>
-        function changeToRed() {
-            const headings = document.querySelectorAll(".my-heading");
-            headings.forEach(heading => {
-                heading.style.color = "red";
-            });
-        }
-
-        function changeToBlue() {
-            const headings = document.querySelectorAll(".my-heading");
-            headings.forEach(heading => {
-                heading.style.color = "blue";
-            });
-        }
-
-        function changeToGreen() {
-            const headings = document.querySelectorAll(".my-heading");
-            headings.forEach(heading => {
-                heading.style.color = "green";
-            });
-        }
-
-        let intervalId = null;
-        const colors = ["red", "blue", "green", "purple", "orange", "deeppink"];
+        const colors = ["red", "blue", "green"];
         let colorIndex = 0;
 
-        function startAuto() {
-    
-            if (intervalId !== null) return;
-
-            intervalId = setInterval(function() {
-                const headings = document.querySelectorAll(".my-heading");
-                const nextColor = colors[colorIndex];
-
-                headings.forEach(heading => {
-                    heading.style.color = nextColor;
-                });
-
-                colorIndex = (colorIndex + 1) % colors.length;
-            }, 1000); // 1000ms = 1 second
-        }
-
-        function stopAuto() {
-            clearInterval(intervalId);
-            intervalId = null; 
+        function changeColor() {
+            const headings = document.querySelectorAll(".my-heading");
+            headings.forEach(heading => {
+                heading.style.color = colors[colorIndex];
+            });
+            colorIndex = (colorIndex + 1) % colors.length;
         }
     </script>
 
