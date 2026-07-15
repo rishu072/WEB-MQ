@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project</title>
+    <style>
+          body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #0f172a;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            width: 320px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: #1e293b;
+        }
+        .counter {
+            font-size: 3.5rem;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #0f172a;
+        }
+        .buttons button {
+            padding: 12px 24px;
+            margin: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: background 0.2s, transform 0.1s;
+        }
+        .buttons button:active {
+            transform: scale(0.95);
+        }
+        #increment {
+            background: #22c55e;
+            color: white;
+        }
+        #increment:hover {
+            background: #16a34a;
+        }
+        #decrement {
+            background: #ef4444;
+            color: white;
+        }
+        #decrement:hover {
+            background: #dc2626;
+        }
+        #reset {
+            background: #6366f1;
+            color: white;
+        }
+        #reset:hover {
+            background: #4f46e5;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Counter App</h1>
+        <div id="counter" class="counter">0</div>
+        <div class="buttons">
+            <button type="button" id="increment">Increment</button>
+            <button type="button" id="decrement">Decrement</button>
+            <button type="button" id="reset">Reset</button>
+        </div>
+    </div>
+    <script>
+        // small practice project
+        //counter app
+        //requiremnt---- increase/decrase botton
+        // reset button
+        // don't allow negative number.
+
+        const counterDiv = document.getElementById('counter');
+        const incrementBtn = document.getElementById('increment');
+        const decrementBtn = document.getElementById('decrement');
+        const resetBtn = document.getElementById('reset');
+
+        let count = 0;
+
+        incrementBtn.addEventListener('click', () => {
+            count++;
+            counterDiv.textContent = count;
+        });
+
+        decrementBtn.addEventListener('click', () => {
+            if (count > 0) {
+                count--;
+                counterDiv.textContent = count;
+            }
+        });
+
+        resetBtn.addEventListener('click', () => {
+            count = 0;
+            counterDiv.textContent = count;
+        });
+    </script>
+</body>
+</html>
